@@ -15,8 +15,8 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
-    <Compile Include="$(MSBuildThisFileDirectory)PopBarcodeScanner.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)PopBook.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)PopMedia.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataClasses\PopBarcodeScanner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataClasses\PopBook.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DataClasses\PopMedia.cs" />
   </ItemGroup>
 </Project>
