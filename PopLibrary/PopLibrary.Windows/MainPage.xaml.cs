@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PopLibrary.ClassLibrary.DataClasses;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,6 +26,10 @@ namespace PopLibrary
         public MainPage()
         {
             this.InitializeComponent();
+
+            PopBarcodeScanner pbs = new PopBarcodeScanner();
+
+            pbs.setupScanner();
         }
     }
 }
