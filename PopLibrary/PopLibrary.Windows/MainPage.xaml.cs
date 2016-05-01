@@ -1,11 +1,13 @@
 ﻿using PopLibrary.ClassLibrary.DataClasses;
 using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 using System.Runtime.InteropServices.WindowsRuntime;
 using Windows.Foundation;
 using Windows.Foundation.Collections;
+using Windows.UI.Core;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Windows.UI.Xaml.Controls.Primitives;
@@ -27,9 +29,19 @@ namespace PopLibrary
         {
             this.InitializeComponent();
 
-            PopBarcodeScanner pbs = new PopBarcodeScanner();
-
-            pbs.setupScanner();
+            CoreWindow.GetForCurrentThread().KeyDown += MainPage_KeyDown;
+            CoreWindow.GetForCurrentThread().KeyUp += MainPage_KeyUp;
         }
+
+        private void MainPage_KeyUp(CoreWindow sender, KeyEventArgs args)
+        {
+            //Debug.WriteLine("UP:" + args.VirtualKey.ToString());
+        }
+
+        private void MainPage_KeyDown(CoreWindow sender, KeyEventArgs args)
+        {
+            Debug.WriteLine("DOWN:" + args.VirtualKey.ToString());
+        }
+
     }
 }

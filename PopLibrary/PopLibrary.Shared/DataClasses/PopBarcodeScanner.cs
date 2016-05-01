@@ -15,6 +15,7 @@ namespace PopLibrary.ClassLibrary.DataClasses
 
         public async void setupScanner()
         {
+
             ushort vendorId = 0x05FE;
             ushort productId = 0x1010;
             ushort usagePage = 0x0001;
@@ -26,9 +27,9 @@ namespace PopLibrary.ClassLibrary.DataClasses
 
             if (devices.Count > 0)
             {
-                //scanner = ;
+                scanner = await HidDevice.FromIdAsync(devices.ElementAt(0).Id, FileAccessMode.Read);
                 System.Diagnostics.Debug.WriteLine(devices.Count + " HID device found!");
-                ReadWriteToHidDevice(scanner = await HidDevice.FromIdAsync(devices.ElementAt(0).Id, FileAccessMode.Read));
+                ReadWriteToHidDevice(scanner);
             }
             else
             {
