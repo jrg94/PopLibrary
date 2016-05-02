@@ -3,4 +3,9 @@
 	* I have no idea how to set this thing up – the documentation has no directions – just a set of barcodes with labels such as language and print settings
 	* I have spent some time researching how to get this device to pair with the BarcodeScanner API for C# - it is not going well – turns out the scanner needs to be configured as a HID.scanner not an HID.keyboard – I can’t seem to change it
 	* I think the plan is to setup code to handle the device as a keyboard and listen for input from it
+	* After further research, the following are possible solutions:
+		* Use a regex and a timer to determine if input was from barcode scanner or keyboard
+		* Use data streams to separate keyboard input from barcode input
+		* Find a way to configure barcode scanner to serial (RS232) and use the virtual com port for it
+		* Purchase a new scanner which allows me to use the libraries built for Barcode Scanners
 * I am using Visual Studio to build a Windows 8.1 application – XAML is proving to be annoying already, but I have been watching tutorials on how to setup a Universal project (assuming I want to port this to a Windows phone)
