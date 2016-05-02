@@ -6,6 +6,7 @@ using Windows.Devices.HumanInterfaceDevice;
 using Windows.Devices.Enumeration;
 using System.Linq;
 using Windows.Storage;
+using PopLibrary.Devices;
 
 namespace PopLibrary.ClassLibrary.DataClasses
 {
@@ -20,13 +21,7 @@ namespace PopLibrary.ClassLibrary.DataClasses
 
         private async void setupScanner()
         {
-
-            ushort vendorId = 0x05FE;
-            ushort productId = 0x1010;
-            ushort usagePage = 0x0001;
-            ushort usageId = 0x0006;
-
-            string selector = HidDevice.GetDeviceSelector(usagePage, usageId, vendorId, productId);
+            string selector = HidDevice.GetDeviceSelector(CortexScanner.UsagePage, CortexScanner.UsageId, CortexScanner.Vid, CortexScanner.Pid);
 
             var devices = await DeviceInformation.FindAllAsync(selector);
 
