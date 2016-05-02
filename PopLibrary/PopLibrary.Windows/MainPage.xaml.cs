@@ -25,17 +25,28 @@ namespace PopLibrary
     /// </summary>
     public sealed partial class MainPage : Page
     {
+
         public MainPage()
         {
             this.InitializeComponent();
-
-            CoreWindow.GetForCurrentThread().KeyDown += MainPage_KeyDown;
-            CoreWindow.GetForCurrentThread().KeyUp += MainPage_KeyUp;
+            PopBarcodeScanner pbs = new PopBarcodeScanner();
+            //SetScannerMode(true);
         }
 
-        private void MainPage_KeyUp(CoreWindow sender, KeyEventArgs args)
+        /// <summary>
+        /// Sets up the KeyDown listener
+        /// </summary>
+        /// <param name="scannerMode"></param>
+        private void SetScannerMode(bool scannerMode)
         {
-            //Debug.WriteLine("UP:" + args.VirtualKey.ToString());
+            if (scannerMode)
+            {
+                CoreWindow.GetForCurrentThread().KeyDown += MainPage_KeyDown;
+            }
+            else
+            {
+                CoreWindow.GetForCurrentThread().KeyDown += null;
+            }
         }
 
         private void MainPage_KeyDown(CoreWindow sender, KeyEventArgs args)

@@ -13,7 +13,12 @@ namespace PopLibrary.ClassLibrary.DataClasses
     {
         HidDevice scanner = null;
 
-        public async void setupScanner()
+        public PopBarcodeScanner()
+        {
+            setupScanner();
+        }
+
+        private async void setupScanner()
         {
 
             ushort vendorId = 0x05FE;
@@ -29,7 +34,9 @@ namespace PopLibrary.ClassLibrary.DataClasses
             {
                 scanner = await HidDevice.FromIdAsync(devices.ElementAt(0).Id, FileAccessMode.Read);
                 System.Diagnostics.Debug.WriteLine(devices.Count + " HID device found!");
-                ReadWriteToHidDevice(scanner);
+                
+                ReadHidDevice(scanner);
+               
             }
             else
             {
@@ -37,24 +44,10 @@ namespace PopLibrary.ClassLibrary.DataClasses
             }
         }
 
-        private async void ReadWriteToHidDevice(HidDevice device)
+        private async void ReadHidDevice(HidDevice device)
         {
             if (device != null)
             {
-                // construct a HID output report to send to the device
-                HidOutputReport outReport = device.CreateOutputReport();
-
-                /// Initialize the data buffer and fill it in
-                byte[] buffer = new byte[] { 10, 20, 30, 40 };
-
-                DataWriter dataWriter = new DataWriter();
-                dataWriter.WriteBytes(buffer);
-
-                outReport.Data = dataWriter.DetachBuffer();
-
-                // Send the output report asynchronously
-                await device.SendOutputReportAsync(outReport);
-
                 //
                 // Sent output report successfully 
                 // Now lets try read an input report 
@@ -65,6 +58,7 @@ namespace PopLibrary.ClassLibrary.DataClasses
                 {
                     UInt16 id = inReport.Id;
                     var bytes = new byte[4];
+                    System.Diagnostics.Debug.WriteLine(inReport.Data.ToString());
                     DataReader dataReader = DataReader.FromBuffer(inReport.Data);
                     dataReader.ReadBytes(bytes);
                 }
