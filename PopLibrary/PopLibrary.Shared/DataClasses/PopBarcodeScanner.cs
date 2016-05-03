@@ -17,6 +17,7 @@ namespace PopLibrary.ClassLibrary.DataClasses
         public PopBarcodeScanner()
         {
             setupScanner();
+            //scanner.InputReportReceived += Scanner_InputReportReceived;
         }
 
         private async void setupScanner()
@@ -29,14 +30,26 @@ namespace PopLibrary.ClassLibrary.DataClasses
             {
                 scanner = await HidDevice.FromIdAsync(devices.ElementAt(0).Id, FileAccessMode.Read);
                 System.Diagnostics.Debug.WriteLine(devices.Count + " HID device found!");
-                
-                ReadHidDevice(scanner);
-               
+
+                if (scanner == null)
+                {
+                    System.Diagnostics.Debug.WriteLine("Scanner is null");
+                }
+
+                //scanner.InputReportReceived += Scanner_InputReportReceived;
+
+                //ReadHidDevice(scanner);
+
             }
             else
             {
                 System.Diagnostics.Debug.WriteLine("HID device not found");
             }
+        }
+
+        private void Scanner_InputReportReceived(HidDevice sender, HidInputReportReceivedEventArgs args)
+        {
+            //System.Diagnostics.Debug.WriteLine(args.Report.Data.ToString());
         }
 
         private async void ReadHidDevice(HidDevice device)

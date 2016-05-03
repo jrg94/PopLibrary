@@ -37,5 +37,11 @@
   </Applications>
   <Capabilities>
     <Capability Name="internetClient" />
+    <m2:DeviceCapability Name="humaninterfacedevice">
+      <!--Desko Device-->
+      <m2:Device Id="vidpid:05FE 1010 usb">
+        <m2:Function Type="usage:0001 0006"/>
+      </m2:Device>
+    </m2:DeviceCapability>
   </Capabilities>
 </Package>
