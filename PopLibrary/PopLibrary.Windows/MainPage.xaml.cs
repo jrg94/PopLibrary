@@ -28,6 +28,12 @@ namespace PopLibrary
         public MainPage()
         {
             this.InitializeComponent();
+            submitButton.Click += SubmitButton_Click;
+        }
+
+        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        {
+            barcodeBox.Text = "Jamal";
         }
     }
 }
