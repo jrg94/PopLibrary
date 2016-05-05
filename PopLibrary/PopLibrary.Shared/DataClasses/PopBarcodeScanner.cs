@@ -1,84 +1,25 @@
-﻿using System;
-using System.Threading.Tasks;
-using Windows.Storage.Streams;
-using System.Text;
-using Windows.Devices.HumanInterfaceDevice;
-using Windows.Devices.Enumeration;
-using System.Linq;
-using Windows.Storage;
-using PopLibrary.Devices;
+﻿
+using System;
+using System.Runtime.InteropServices;
 
 namespace PopLibrary.ClassLibrary.DataClasses
 {
     public class PopBarcodeScanner
     {
-        HidDevice scanner = null;
+        #region Raw Input API
 
-        public PopBarcodeScanner()
-        {
-            setupScanner();
-            //scanner.InputReportReceived += Scanner_InputReportReceived;
-        }
+        [DllImport("User32.dll")]
+        extern static uint GetRawInputDeviceList(IntPtr pRawInputDeviceList, ref uint uiNumDevices, uint cbSize);
 
-        private async void setupScanner()
-        {
-            string selector = HidDevice.GetDeviceSelector(CortexScanner.UsagePage, CortexScanner.UsageId, CortexScanner.Vid, CortexScanner.Pid);
+        [DllImport("User32.dll")]
+        extern static uint GetRawInputDeviceInfo(IntPtr hDevice, uint uiCommand, IntPtr pData, ref uint pcbSize);
 
-            var devices = await DeviceInformation.FindAllAsync(selector);
+        [DllImport("User32.dll")]
+        extern static bool RegisterRawInputDevices(RAWINPUTDEVICE[] pRawInputDevice, uint uiNumDevices, uint cbSize);
 
-            if (devices.Count > 0)
-            {
-                scanner = await HidDevice.FromIdAsync(devices.ElementAt(0).Id, FileAccessMode.Read);
-                System.Diagnostics.Debug.WriteLine(devices.Count + " HID device found!");
+        [DllImport("User32.dll")]
+        extern static uint GetRawInputData(IntPtr hRawInput, uint uiCommand, IntPtr pData, ref uint pcbSize, uint cbSizeHeader);
 
-                if (scanner == null)
-                {
-                    System.Diagnostics.Debug.WriteLine("Scanner is null");
-                }
-
-                //scanner.InputReportReceived += Scanner_InputReportReceived;
-
-                //ReadHidDevice(scanner);
-
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine("HID device not found");
-            }
-        }
-
-        private void Scanner_InputReportReceived(HidDevice sender, HidInputReportReceivedEventArgs args)
-        {
-            //System.Diagnostics.Debug.WriteLine(args.Report.Data.ToString());
-        }
-
-        private async void ReadHidDevice(HidDevice device)
-        {
-            if (device != null)
-            {
-                //
-                // Sent output report successfully 
-                // Now lets try read an input report 
-                //
-                HidInputReport inReport = await device.GetInputReportAsync();
-
-                if (inReport != null)
-                {
-                    UInt16 id = inReport.Id;
-                    var bytes = new byte[4];
-                    System.Diagnostics.Debug.WriteLine(inReport.Data.ToString());
-                    DataReader dataReader = DataReader.FromBuffer(inReport.Data);
-                    dataReader.ReadBytes(bytes);
-                }
-                else
-                {
-                    System.Diagnostics.Debug.WriteLine("Invalid input report received");
-                }
-            }
-            else
-            {
-                System.Diagnostics.Debug.WriteLine("Device is null");
-            }
-        }
+        #endregion
     }
 }

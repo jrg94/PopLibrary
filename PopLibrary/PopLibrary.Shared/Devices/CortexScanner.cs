@@ -14,7 +14,7 @@ namespace PopLibrary.Devices
     /// are blocked in the HIDDevice library in .NET
     /// As a result, you have to use RawInput to handle it which
     /// basically means writing threads at near C level code to 
-    /// handle the keyboard data stream and the barcode data stream
+    /// handle the keyboard data stream and the barcode data stream 
     /// </summary>
     class CortexScanner
     {
