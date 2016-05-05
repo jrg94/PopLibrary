@@ -9,7 +9,7 @@
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <TextBox x:Name="barcodeBox" HorizontalAlignment="Left" Margin="646,308,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Button x:Name="submitButton" Content="Enter" HorizontalAlignment="Left" Margin="643,342,0,0" VerticalAlignment="Top" Click="submitButton_Click_1"/>
+        <Button x:Name="submitButton" Content="Enter" HorizontalAlignment="Left" Margin="643,342,0,0" VerticalAlignment="Top" Click="SubmitButton_Click"/>
 
     </Grid>
 </Page>
