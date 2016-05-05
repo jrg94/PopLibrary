@@ -29,8 +29,6 @@ namespace PopLibrary
         // Set your AWS Access Key ID and AWS Secret Key here.
         // You can obtain them at:
         // http://aws-portal.amazon.com/gp/aws/developer/account/index.html?action=access-key
-        const String MY_AWS_ID = "AKIAJTPD7BGTWVVQLASQ";
-        const String MY_AWS_SECRET = "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";
 
         public MainPage()
         {
