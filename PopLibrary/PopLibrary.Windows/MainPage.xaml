@@ -8,9 +8,12 @@
     mc:Ignorable="d">
 
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
-        <TextBox x:Name="barcodeBox" HorizontalAlignment="Left" Margin="646,308,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top"/>
-        <Button x:Name="submitButton" Content="Enter" HorizontalAlignment="Left" Margin="643,342,0,0" VerticalAlignment="Top" Click="SubmitButton_Click"/>
-        <TextBlock x:Name="contentPane" HorizontalAlignment="Left" Margin="646,382,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="64"/>
-
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="381*"/>
+            <ColumnDefinition Width="985*"/>
+        </Grid.ColumnDefinitions>
+        <TextBox x:Name="barcodeBox" HorizontalAlignment="Left" Margin="130,345,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" MaxLength="15"/>
+        <Button x:Name="submitButton" Content="Enter" HorizontalAlignment="Left" Margin="127,379,0,0" VerticalAlignment="Top" Click="SubmitButton_Click" Width="156"/>
+        <TextBlock x:Name="contentPane" HorizontalAlignment="Left" Margin="130,414,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" Height="150"/>
     </Grid>
 </Page>
