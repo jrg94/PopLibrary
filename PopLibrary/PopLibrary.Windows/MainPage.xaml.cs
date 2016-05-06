@@ -23,31 +23,22 @@ namespace PopLibrary
             submitButton.Click += SubmitButton_Click;
         }
 
-        private void SubmitButton_Click(object sender, RoutedEventArgs e)
+        /// <summary>
+        /// The behavior for the submit button
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private async void SubmitButton_Click(object sender, RoutedEventArgs e)
         {
-            WebRequest wrGetURL = WebRequest.Create("http://api.upcdatabase.org/json/" + apiKey + "/" + barcodeBox.Text);
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://api.upcdatabase.org/json/" + apiKey + "/" + barcodeBox.Text);
+            HttpWebResponse res = (HttpWebResponse)(await req.GetResponseAsync());
 
-            wrGetURL.Method = "POST";
+            Stream streamResponse = res.GetResponseStream();
+            StreamReader streamRead = new StreamReader(streamResponse);
 
-            wrGetURL.BeginGetRequestStream(RequestCallBack, wrGetURL);
-        }
+            string responseString = await streamRead.ReadToEndAsync();
 
-        void RequestCallBack(IAsyncResult result)
-        {
-            HttpWebRequest request = result.AsyncState as HttpWebRequest;
-            Stream stream = request.EndGetRequestStream(result);
-            request.BeginGetResponse(ResponceCallBack, request);
-        }
-
-        void ResponceCallBack(IAsyncResult result)
-        {
-            HttpWebRequest request = result.AsyncState as HttpWebRequest;
-            HttpWebResponse response = request.EndGetResponse(result) as HttpWebResponse;
-            using (StreamReader sr = new StreamReader(response.GetResponseStream()))
-            {
-                System.Diagnostics.Debug.WriteLine(sr.ReadToEnd());
-            }
-
+            contentPane.Text = responseString;
         }
     }
 }
