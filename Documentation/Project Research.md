@@ -15,3 +15,7 @@
 * The plan is to now just skip automation with the scanner - the UI will have a text box which we can scan codes into and the user can hit search with it
 * The next challenge is to actually have that search hit a server which holds the UPC codes - I'm currently running into major issues with the Amazon API
 * All of the data will be held in a local SQLite database as a means of providing scalability in the future
+	* A lot of research needs to be done in terms of proper table design - for instance, how many tables should I use and how do I properly implement those tables
+	* At the moment, I'm looking at have a books table which stores every book in the library
+	* I also plan to have a student table which will store a list of students that have checked out books
+	* In addition, I think there needs to be a issue and return table for handling the relationship between each student and all the books
