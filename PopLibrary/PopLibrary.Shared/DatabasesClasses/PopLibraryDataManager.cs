@@ -37,11 +37,18 @@ namespace PopLibrary.DatabasesClasses
         /// Returns the entire database of books
         /// </summary>
         /// <returns></returns>
-        public Task<List<Book>> QueryAllBooks()
+        public List<Book> QueryAllBooks()
         {
             return (from b in Table<Book>()
                    orderby b.Title
-                   select b).ToListAsync();
+                   select b).ToListAsync().Result;
+        }
+
+        public Book QueryBookByTitle(string title)
+        {
+            return (from b in Table<Book>()
+                    where b.Title == title
+                    select b).FirstOrDefaultAsync().Result;
         }
 
         /// <summary>
@@ -70,7 +77,16 @@ namespace PopLibrary.DatabasesClasses
         /// </summary>
         public void AddBook(Book book)
         {
-            InsertAsync(book);
+            Book update;
+            if ((update = QueryBookByTitle(book.Title)) != null)
+            {
+                update.NumberOfCopies++;
+                UpdateAsync(update);
+            }
+            else
+            {
+                InsertAsync(book);
+            }
         }
     }
 }

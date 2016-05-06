@@ -53,10 +53,13 @@ namespace PopLibrary
             SetupBookList();
         }
 
+        /// <summary>
+        /// Displays the entire list of books in the frame
+        /// </summary>
         private void SetupBookList()
         {
             bookList.ItemsSource = null;
-            bookList.ItemsSource = db.QueryAllBooks().Result;
+            bookList.ItemsSource = db.QueryAllBooks();
         }
     }
 }
