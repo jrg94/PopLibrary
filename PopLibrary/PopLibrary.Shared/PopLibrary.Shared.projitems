@@ -15,6 +15,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\Model\Book.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\Model\User.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\PopLibraryDataManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataClasses\PopBarcodeScanner.cs" />

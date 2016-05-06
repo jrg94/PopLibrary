@@ -11,12 +11,19 @@ namespace PopLibrary.DatabasesClasses
     /// </summary>
     class PopLibraryDataManager
     {
+        /// <summary>
+        /// A function for creating a new database
+        /// </summary>
         public async void InitializeDatabase()
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("PopLibrary.db");
             await conn.CreateTableAsync<User>();
         }
 
+        /// <summary>
+        /// A function for adding new users to the database
+        /// </summary>
+        /// <param name="email"></param>
         public async void AddUser(string email)
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("PopLibrary.db");
@@ -29,9 +36,21 @@ namespace PopLibrary.DatabasesClasses
             await conn.InsertAsync(newUser);
         }
 
-        public void AddBook()
+        /// <summary>
+        /// A function for adding a book to the database
+        /// </summary>
+        public async void AddBook(string title, string isbn, string author)
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("PopLibrary.db");
+
+            Book newBook = new Book()
+            {
+                Title = title,
+                ISBN = isbn,
+                Author = author
+            };
+
+            await conn.InsertAsync(newBook);
         }
     }
 }
