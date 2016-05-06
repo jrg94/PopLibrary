@@ -23,5 +23,10 @@ namespace PopLibrary.DatabasesClasses.Model
         public string Author { get; set; }
 
         public int NumberOfCopies { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("Title:{0}\nAuthor:{1}\nISBN:{2}\nCopies:{3}", Title, Author, ISBN, NumberOfCopies);
+        }
     }
 }

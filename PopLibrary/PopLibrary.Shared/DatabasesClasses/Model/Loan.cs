@@ -20,5 +20,10 @@ namespace PopLibrary.DatabasesClasses.Model
         public DateTime DateDue { get; set; }
 
         public DateTime DateReturned { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("Issued:{0}\nDue:{1}\nReturned:{2}", DateOut, DateDue, DateReturned);
+        }
     }
 }

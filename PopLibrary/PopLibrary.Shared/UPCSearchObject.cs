@@ -13,6 +13,7 @@ namespace PopLibrary
     class UPCSearchObject
     {
         public bool valid { get; set; }
+        public string reason { get; set; }
         public string number { get; set; }
         public string itemname { get; set; }
         public string alias { get; set; }
@@ -30,11 +31,11 @@ namespace PopLibrary
             if (valid)
             {
                 string formatString = "UPC: {0}\nLabel: {1}\nDescription: {2}";
-                return String.Format(formatString, number, itemname, description);
+                return string.Format(formatString, number, itemname, description);
             }
             else
             {
-                return "Could not find this product";
+                return reason;
             }
         }
     }
