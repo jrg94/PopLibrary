@@ -6,6 +6,10 @@ using System.Threading.Tasks;
 
 namespace PopLibrary
 {
+    /// <summary>
+    /// UPCSearchObject is a temporary object for deserializing incoming
+    /// data from the UPC code searches
+    /// </summary>
     class UPCSearchObject
     {
         public bool valid { get; set; }
@@ -17,12 +21,16 @@ namespace PopLibrary
         public int rate_up { get; set; }
         public int rate_down { get; set; }
 
+        /// <summary>
+        /// Provides the UPC search as a string
+        /// </summary>
+        /// <returns></returns>
         public string ToString()
         {
             if (valid)
             {
-                return "UPC: " + number +
-                       "\nLabel: " + itemname;
+                string formatString = "UPC: {0}\nLabel: {1}\nDescription: {2}";
+                return String.Format(formatString, number, itemname, description);
             }
             else
             {
