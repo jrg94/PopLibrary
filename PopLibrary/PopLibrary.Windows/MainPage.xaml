@@ -13,7 +13,7 @@
             <ColumnDefinition Width="483*"/>
         </Grid.ColumnDefinitions>
         <TextBox x:Name="barcodeBox" HorizontalAlignment="Left" Margin="130,345,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="150" MaxLength="15" Height="32"/>
-        <Button x:Name="submitButton" Content="Enter" HorizontalAlignment="Left" Margin="127,379,0,0" VerticalAlignment="Top" Click="SubmitButton_Click" Width="156" Height="38"/>
+        <Button x:Name="submitButton" Content="Enter" HorizontalAlignment="Left" Margin="127,379,0,0" VerticalAlignment="Top" Click="SubmitButton_KeyUp" Width="156" Height="38"/>
         <TextBlock x:Name="contentPane" HorizontalAlignment="Left" Margin="130,414,0,0" TextWrapping="WrapWholeWords" Text="" VerticalAlignment="Top" Width="150" Height="150" />
         <ListView x:Name="bookList" Grid.Column="1" HorizontalAlignment="Left" Height="768" VerticalAlignment="Top" Width="966"/>
     </Grid>

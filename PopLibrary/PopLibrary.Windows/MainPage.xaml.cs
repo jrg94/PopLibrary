@@ -23,7 +23,7 @@ namespace PopLibrary
         {
             this.InitializeComponent();
             db = new PopLibraryDataManager("PopLibrary.db");
-            submitButton.Click += SubmitButton_Click;
+            submitButton.KeyUp += SubmitButton_KeyUp;
         }
 
         /// <summary>
@@ -31,7 +31,7 @@ namespace PopLibrary
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
-        private async void SubmitButton_Click(object sender, RoutedEventArgs e)
+        private async void SubmitButton_KeyUp(object sender, RoutedEventArgs e)
         {
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://api.upcdatabase.org/json/" + apiKey + "/" + barcodeBox.Text);
             HttpWebResponse res = (HttpWebResponse)(await req.GetResponseAsync());
@@ -50,12 +50,13 @@ namespace PopLibrary
             {
                 Title = "The legend of pizza"
             });
-            //SetupBookList();
+            SetupBookList();
         }
 
         private void SetupBookList()
         {
-            bookList.ItemsSource = db.QueryAllBooks();
+            bookList.ItemsSource = null;
+            bookList.ItemsSource = db.QueryAllBooks().Result;
         }
     }
 }

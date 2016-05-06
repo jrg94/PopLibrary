@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Text;
 using SQLite;
 using PopLibrary.DatabasesClasses.Model;
+using System.Threading.Tasks;
 
 namespace PopLibrary.DatabasesClasses
 {
@@ -36,11 +37,11 @@ namespace PopLibrary.DatabasesClasses
         /// Returns the entire database of books
         /// </summary>
         /// <returns></returns>
-        public IEnumerable<Book> QueryAllBooks()
+        public Task<List<Book>> QueryAllBooks()
         {
-            return (IEnumerable<Book>) (from b in Table<Book>()
+            return (from b in Table<Book>()
                    orderby b.Title
-                   select b);
+                   select b).ToListAsync();
         }
 
         /// <summary>
