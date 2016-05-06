@@ -18,19 +18,22 @@ namespace PopLibrary.DatabasesClasses
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("PopLibrary.db");
             await conn.CreateTableAsync<Student>();
+            await conn.CreateTableAsync<Book>();
+            await conn.CreateTableAsync<Issue>();
+            await conn.CreateTableAsync<Return>();
         }
 
         /// <summary>
         /// A function for adding new users to the database
         /// </summary>
         /// <param name="email"></param>
-        public async void AddUser(string email)
+        public async void AddStudent(string name)
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("PopLibrary.db");
 
             Student newStudent = new Student()
             {
-                //Email = email
+                Name = name
             };
 
             await conn.InsertAsync(newStudent);
