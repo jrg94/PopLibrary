@@ -9,19 +9,38 @@ namespace PopLibrary.DatabasesClasses
     /// <summary>
     /// Handles all data management with the database
     /// </summary>
-    class PopLibraryDataManager
+    class PopLibraryDataManager : SQLiteAsyncConnection
     {
-
+        /// <summary>
+        /// The constructor for the database
+        /// </summary>
+        /// <param name="path"></param>
+        public PopLibraryDataManager(string path) : base(path)
+        {
+            CreateTableAsync<Student>();
+            CreateTableAsync<Book>();
+            CreateTableAsync<Loan>();
+        }
 
         /// <summary>
-        /// A function for creating a new database
+        /// Returns a list of loans out for a book id
         /// </summary>
-        public async void InitializeDatabase()
+        /// <param name="book"></param>
+        /// <returns></returns>
+        public IEnumerable<Loan> QueryLoanByBookId(Book book)
         {
-            SQLiteAsyncConnection conn = new SQLiteAsyncConnection("PopLibrary.db");
-            await conn.CreateTableAsync<Student>();
-            await conn.CreateTableAsync<Book>();
-            await conn.CreateTableAsync<Loan>();
+            return (IEnumerable<Loan>) Table<Loan>().Where(x => x.BookId == book.BookId);
+        }
+
+        /// <summary>
+        /// Returns the entire database of books
+        /// </summary>
+        /// <returns></returns>
+        public IEnumerable<Book> QueryAllBooks()
+        {
+            return (IEnumerable<Book>) (from b in Table<Book>()
+                   orderby b.Title
+                   select b);
         }
 
         /// <summary>
