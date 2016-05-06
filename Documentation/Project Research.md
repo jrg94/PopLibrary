@@ -10,6 +10,8 @@
 		* Purchase a new scanner which allows me to use the libraries built for Barcode Scanners
 	* So it turns out I can't use the HidDevice library either because the device uses the usage page 0001 - 0006 which are apparently banned by the library - as a result I suppose I'll have to look at one of the other solutions above - I'm thinking either raw data separation or buying a new scanner
 * I am using Visual Studio to build a Windows 8.1 application – XAML is proving to be annoying already, but I have been watching tutorials on how to setup a Universal project (assuming I want to port this to a Windows phone)
+	* I'm already familiar with C# because of game design - that said, I'm taking this time to actually learn the proper conventions so that I can have a longterm project that can be updated over time
 # Gameplan
 * The plan is to now just skip automation with the scanner - the UI will have a text box which we can scan codes into and the user can hit search with it
 * The next challenge is to actually have that search hit a server which holds the UPC codes - I'm currently running into major issues with the Amazon API
+* All of the data will be held in a local SQLite database as a means of providing scalability in the future

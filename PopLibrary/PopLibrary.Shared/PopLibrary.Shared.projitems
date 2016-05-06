@@ -15,9 +15,14 @@
     <Compile Include="$(MSBuildThisFileDirectory)App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\Model\User.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\PopLibraryDataManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataClasses\PopBarcodeScanner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataClasses\PopBook.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DataClasses\PopMedia.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Devices\CortexScanner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SQLite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SQLiteAsync.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UPCSearchObject.cs" />
   </ItemGroup>
 </Project>
