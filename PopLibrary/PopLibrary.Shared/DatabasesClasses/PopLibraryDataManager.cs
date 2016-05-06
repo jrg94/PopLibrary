@@ -11,6 +11,8 @@ namespace PopLibrary.DatabasesClasses
     /// </summary>
     class PopLibraryDataManager
     {
+
+
         /// <summary>
         /// A function for creating a new database
         /// </summary>
@@ -19,41 +21,39 @@ namespace PopLibrary.DatabasesClasses
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("PopLibrary.db");
             await conn.CreateTableAsync<Student>();
             await conn.CreateTableAsync<Book>();
-            await conn.CreateTableAsync<Issue>();
-            await conn.CreateTableAsync<Return>();
+            await conn.CreateTableAsync<Loan>();
         }
 
         /// <summary>
-        /// A function for adding new users to the database
+        /// Handles behavior when a student wants to borrow a book
         /// </summary>
-        /// <param name="email"></param>
-        public async void AddStudent(string name)
+        /// <param name="student"></param>
+        /// <param name="book"></param>
+        /// <param name="loan"></param>
+        public async void LoanBook(Student student, Loan loan)
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("PopLibrary.db");
+            await conn.InsertAsync(student);
+            await conn.InsertAsync(loan);
+        }
 
-            Student newStudent = new Student()
-            {
-                Name = name
-            };
-
-            await conn.InsertAsync(newStudent);
+        /// <summary>
+        /// Handles behavior when a student returns a book
+        /// </summary>
+        /// <param name="loan"></param>
+        public async void ReturnBook(Loan loan)
+        {
+            SQLiteAsyncConnection conn = new SQLiteAsyncConnection("PopLibrary.db");
+            await conn.UpdateAsync(loan);
         }
 
         /// <summary>
         /// A function for adding a book to the database
         /// </summary>
-        public async void AddBook(string title, string isbn, string author)
+        public async void AddBook(Book book)
         {
             SQLiteAsyncConnection conn = new SQLiteAsyncConnection("PopLibrary.db");
-
-            Book newBook = new Book()
-            {
-                Title = title,
-                ISBN = isbn,
-                Author = author
-            };
-
-            await conn.InsertAsync(newBook);
+            await conn.InsertAsync(book);
         }
     }
 }

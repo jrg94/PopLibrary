@@ -5,16 +5,20 @@ using SQLite;
 
 namespace PopLibrary.DatabasesClasses.Model
 {
-    [Table("Issues")]
-    class Issue
+    [Table("Loans")]
+    class Loan
     {
         [PrimaryKey, AutoIncrement]
-        public int IssueId { get; set; }
-
-        public DateTime IssueDate { get; set; }
+        public int LoanId { get; set; }
 
         public int BookId { get; set; }
 
         public int StudentId { get; set; }
+
+        public DateTime DateOut { get; set; }
+
+        public DateTime DateDue { get; set; }
+
+        public DateTime DateReturned { get; set; }
     }
 }

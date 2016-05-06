@@ -16,8 +16,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\Model\Book.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\Model\Issue.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\Model\Return.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\Model\Loan.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\Model\Student.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\PopLibraryDataManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Devices\CortexScanner.cs" />
