@@ -45,6 +45,12 @@ namespace PopLibrary
 
             System.Diagnostics.Debug.WriteLine(responseString);
             contentPane.Text = tmp.ToString();
+
+            db.AddBook(new DatabasesClasses.Model.Book()
+            {
+                Title = "The legend of pizza"
+            });
+            //SetupBookList();
         }
 
         private void SetupBookList()

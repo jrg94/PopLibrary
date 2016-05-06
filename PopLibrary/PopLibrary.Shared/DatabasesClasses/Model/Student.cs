@@ -12,5 +12,10 @@ namespace PopLibrary.DatabasesClasses.Model
         public int StudentId { get; set; }
 
         public string Name { get; set; }
+
+        public override string ToString()
+        {
+            return string.Format("Student:{0}", Name);
+        }
     }
 }
