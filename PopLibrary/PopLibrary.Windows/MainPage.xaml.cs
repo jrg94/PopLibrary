@@ -24,6 +24,7 @@ namespace PopLibrary
             this.InitializeComponent();
             db = new PopLibraryDataManager("PopLibrary.db");
             submitButton.KeyUp += SubmitButton_KeyUp;
+            SetupBookList();
         }
 
         /// <summary>

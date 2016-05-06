@@ -24,6 +24,17 @@ namespace PopLibrary.DatabasesClasses
         }
 
         /// <summary>
+        /// Empty the book table
+        /// </summary>
+        public void EmptyBookTable ()
+        {
+            foreach (Book b in Table<Book>().ToListAsync().Result)
+            {
+                DeleteAsync(b);
+            }
+        }
+
+        /// <summary>
         /// Returns a list of loans out for a book id
         /// </summary>
         /// <param name="book"></param>
@@ -44,6 +55,11 @@ namespace PopLibrary.DatabasesClasses
                    select b).ToListAsync().Result;
         }
 
+        /// <summary>
+        /// Returns a specific book which matches the title
+        /// </summary>
+        /// <param name="title"></param>
+        /// <returns></returns>
         public Book QueryBookByTitle(string title)
         {
             return (from b in Table<Book>()
