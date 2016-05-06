@@ -1,9 +1,9 @@
-﻿using PopLibrary.com.amazon.webservices;
-using System;
+﻿using System;
 using System.IO;
 using System.Net;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Newtonsoft.Json;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -38,7 +38,10 @@ namespace PopLibrary
 
             string responseString = await streamRead.ReadToEndAsync();
 
-            contentPane.Text = responseString;
+            UPCSearchObject tmp = JsonConvert.DeserializeObject<UPCSearchObject>(responseString);
+
+            System.Diagnostics.Debug.WriteLine(responseString);
+            contentPane.Text = tmp.ToString();
         }
     }
 }
