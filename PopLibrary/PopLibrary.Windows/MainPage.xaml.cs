@@ -4,12 +4,12 @@ using System.Net;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
 using Newtonsoft.Json;
+using PopLibrary.DatabasesClasses;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
 namespace PopLibrary
 {
-
     /// <summary>
     /// An empty page that can be used on its own or navigated to within a Frame.
     /// </summary>
@@ -17,9 +17,12 @@ namespace PopLibrary
     {
         const string apiKey = "9e233670e5568ae80f24204b76b9aada";
 
+        PopLibraryDataManager db;
+
         public MainPage()
         {
             this.InitializeComponent();
+            db = new PopLibraryDataManager("PopLibrary.db");
             submitButton.Click += SubmitButton_Click;
         }
 
@@ -42,6 +45,11 @@ namespace PopLibrary
 
             System.Diagnostics.Debug.WriteLine(responseString);
             contentPane.Text = tmp.ToString();
+        }
+
+        private void SetupBookList()
+        {
+            bookList.ItemsSource = db.QueryAllBooks();
         }
     }
 }

@@ -25,7 +25,7 @@ namespace PopLibrary
         /// Provides the UPC search as a string
         /// </summary>
         /// <returns></returns>
-        public string ToString()
+        public override string ToString()
         {
             if (valid)
             {
