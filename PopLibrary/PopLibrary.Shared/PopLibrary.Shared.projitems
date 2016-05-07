@@ -22,6 +22,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)Devices\CortexScanner.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQL\SQLite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQL\SQLiteAsync.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UPCDatabaseModels\APIKeys.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UPCDatabaseModels\DigitEyesObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UPCDatabaseModels\UPCDatabaseObject.cs" />
   </ItemGroup>
