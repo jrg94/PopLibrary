@@ -25,4 +25,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)SQLiteAsync.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)UPCDatabaseObject.cs" />
   </ItemGroup>
+  <ItemGroup>
+    <Content Include="$(MSBuildThisFileDirectory)config.txt" />
+  </ItemGroup>
 </Project>
