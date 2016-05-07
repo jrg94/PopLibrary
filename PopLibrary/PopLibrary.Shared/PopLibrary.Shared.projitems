@@ -20,10 +20,10 @@
     <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\Model\Student.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\PopLibraryDataManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Devices\CortexScanner.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)DigitEyesObject.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SQLite.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)SQLiteAsync.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)UPCDatabaseObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SQL\SQLite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SQL\SQLiteAsync.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UPCDatabaseModels\DigitEyesObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UPCDatabaseModels\UPCDatabaseObject.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="$(MSBuildThisFileDirectory)config.txt" />
