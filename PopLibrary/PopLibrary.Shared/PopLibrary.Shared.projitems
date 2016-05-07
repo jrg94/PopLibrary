@@ -20,8 +20,9 @@
     <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\Model\Student.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DatabasesClasses\PopLibraryDataManager.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Devices\CortexScanner.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DigitEyesObject.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQLite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SQLiteAsync.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)UPCSearchObject.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)UPCDatabaseObject.cs" />
   </ItemGroup>
 </Project>

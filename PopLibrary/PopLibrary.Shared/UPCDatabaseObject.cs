@@ -10,7 +10,7 @@ namespace PopLibrary
     /// UPCSearchObject is a temporary object for deserializing incoming
     /// data from the UPC code searches
     /// </summary>
-    class UPCSearchObject
+    class UPCDatabaseObject
     {
         public bool valid { get; set; }
         public string reason { get; set; }

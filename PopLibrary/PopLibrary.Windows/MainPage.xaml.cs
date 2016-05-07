@@ -42,7 +42,7 @@ namespace PopLibrary
 
             string responseString = await streamRead.ReadToEndAsync();
 
-            UPCSearchObject tmp = JsonConvert.DeserializeObject<UPCSearchObject>(responseString);
+            UPCDatabaseObject tmp = JsonConvert.DeserializeObject<UPCDatabaseObject>(responseString);
 
             System.Diagnostics.Debug.WriteLine(responseString);
             contentPane.Text = tmp.ToString();
