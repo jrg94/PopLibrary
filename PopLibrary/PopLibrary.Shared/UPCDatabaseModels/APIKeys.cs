@@ -9,5 +9,7 @@ namespace PopLibrary.UPCDatabaseModels
         public string upcDatabaseKey { get; set; }
         public string digitEyesAppKey { get; set; }
         public string digitEyesAuthorizationKey { get; set; }
+        public string amazonAccessKeyId { get; set; }
+        public string amazonSecretAccessKey { get; set; }
     }
 }
