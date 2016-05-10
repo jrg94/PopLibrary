@@ -40,6 +40,13 @@ namespace PopLibrary
         /// <param name="e"></param>
         private async void SubmitButton_KeyUp(object sender, RoutedEventArgs e)
         {
+            // Makes sure there is something in the textbox
+            if (barcodeBox.Text.Length == 0)
+            {
+                contentPane.Text = "No barcode entered";
+                return;
+            }
+
             // Hit upcdatabase.org for the barcode
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://api.upcdatabase.org/json/" + keys.upcDatabaseKey + "/" + barcodeBox.Text);
             HttpWebResponse res = (HttpWebResponse)(await req.GetResponseAsync());
@@ -64,7 +71,7 @@ namespace PopLibrary
             // Attempt to create and add a book from the temp object 
             db.AddBook(new DatabasesClasses.Model.Book()
             {
-                Title = "The legend of pizza"
+                Title = tmp.itemname
             });
 
             // Reset the UI
@@ -89,7 +96,6 @@ namespace PopLibrary
             var folder = Windows.ApplicationModel.Package.Current.InstalledLocation;
             var file = await folder.GetFileAsync("config.txt");
             var contents = await Windows.Storage.FileIO.ReadTextAsync(file);
-            System.Diagnostics.Debug.WriteLine(contents);
             return contents;
         }
     }
