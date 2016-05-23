@@ -68,6 +68,12 @@ namespace PopLibrary
             // Clear the barcode textbox
             barcodeBox.Text = "";
 
+            // So we don't add an invalid book to the data base
+            if (tmp.valid == false)
+            {
+                return;
+            }
+
             // Attempt to create and add a book from the temp object 
             db.AddBook(new DatabasesClasses.Model.Book()
             {
