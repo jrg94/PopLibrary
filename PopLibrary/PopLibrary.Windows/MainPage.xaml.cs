@@ -51,13 +51,33 @@ namespace PopLibrary
             HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://api.upcdatabase.org/json/" + keys.upcDatabaseKey + "/" + barcodeBox.Text);
             HttpWebResponse res = (HttpWebResponse)(await req.GetResponseAsync());
 
+            // Amazon test
+            HttpWebRequest reqAmazon = (HttpWebRequest)WebRequest.Create("http://webservices.amazon.com/onca/xml?" +
+                                                                         "Service=AWSECommerceService&" +
+                                                                         "AWSAccessKeyId =" + keys.amazonAccessKeyId + "&" +
+                                                                         "AssociateTag =[Associate ID]&" +
+                                                                         "Operation=ItemLookup&" +
+                                                                         "ItemId=B00008OE6I" +
+                                                                         "IdType=UPC&" +
+                                                                         "&Timestamp=[YYYY-MM-DDThh:mm:ssZ]" +
+                                                                         "&Signature=[Request Signature]");
+            HttpWebResponse resAmazon = (HttpWebResponse)(await reqAmazon.GetResponseAsync());
+
             // Read the response
             Stream streamResponse = res.GetResponseStream();
             StreamReader streamRead = new StreamReader(streamResponse);
 
+            // Read amazon response
+            Stream streamAmazon = resAmazon.GetResponseStream();
+            StreamReader streamReadAmazon = new StreamReader(streamAmazon);
+
             // Save and print the response
             string responseString = await streamRead.ReadToEndAsync();
             System.Diagnostics.Debug.WriteLine(responseString);
+
+            // Print amazon response
+            string responseAmazon = await streamReadAmazon.ReadToEndAsync();
+            System.Diagnostics.Debug.WriteLine(responseAmazon);
 
             // Create an object based on the response
             UPCDatabaseObject tmp = JsonConvert.DeserializeObject<UPCDatabaseObject>(responseString);
