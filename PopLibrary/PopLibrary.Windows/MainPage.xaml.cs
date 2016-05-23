@@ -48,10 +48,11 @@ namespace PopLibrary
             }
 
             // Hit upcdatabase.org for the barcode
-            HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://api.upcdatabase.org/json/" + keys.upcDatabaseKey + "/" + barcodeBox.Text);
-            HttpWebResponse res = (HttpWebResponse)(await req.GetResponseAsync());
+            //HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://api.upcdatabase.org/json/" + keys.upcDatabaseKey + "/" + barcodeBox.Text);
+            //HttpWebResponse res = (HttpWebResponse)(await req.GetResponseAsync());
 
             // Amazon test
+            /*
             HttpWebRequest reqAmazon = (HttpWebRequest)WebRequest.Create("http://webservices.amazon.com/onca/xml?" +
                                                                          "Service=AWSECommerceService&" +
                                                                          "AWSAccessKeyId =" + keys.amazonAccessKeyId + "&" +
@@ -62,25 +63,31 @@ namespace PopLibrary
                                                                          "&Timestamp=[YYYY-MM-DDThh:mm:ssZ]" +
                                                                          "&Signature=[Request Signature]");
             HttpWebResponse resAmazon = (HttpWebResponse)(await reqAmazon.GetResponseAsync());
+            */
 
             // Read the response
-            Stream streamResponse = res.GetResponseStream();
-            StreamReader streamRead = new StreamReader(streamResponse);
+            //Stream streamResponse = res.GetResponseStream();
+            //StreamReader streamRead = new StreamReader(streamResponse);
 
             // Read amazon response
+            /*
             Stream streamAmazon = resAmazon.GetResponseStream();
             StreamReader streamReadAmazon = new StreamReader(streamAmazon);
+            */
 
             // Save and print the response
-            string responseString = await streamRead.ReadToEndAsync();
-            System.Diagnostics.Debug.WriteLine(responseString);
+            //string responseString = await streamRead.ReadToEndAsync();
+            //System.Diagnostics.Debug.WriteLine(responseString);
 
             // Print amazon response
+            /*
             string responseAmazon = await streamReadAmazon.ReadToEndAsync();
             System.Diagnostics.Debug.WriteLine(responseAmazon);
+            */
 
             // Create an object based on the response
-            UPCDatabaseObject tmp = JsonConvert.DeserializeObject<UPCDatabaseObject>(responseString);
+            UPCDatabaseObject tmp = CheckUPCDatabase().Result;
+                //JsonConvert.DeserializeObject<UPCDatabaseObject>(responseString);
 
             // Print the temp object
             contentPane.Text = tmp.ToString();
@@ -102,6 +109,24 @@ namespace PopLibrary
 
             // Reset the UI
             SetupBookList();
+        }
+
+        private async Task<UPCDatabaseObject> CheckUPCDatabase()
+        {
+            // Hit upcdatabase.org for the barcode
+            HttpWebRequest req = (HttpWebRequest)WebRequest.Create("http://api.upcdatabase.org/json/" + keys.upcDatabaseKey + "/" + barcodeBox.Text);
+            HttpWebResponse res = (HttpWebResponse)(await req.GetResponseAsync().ConfigureAwait(false));
+
+            // Read the response
+            Stream streamResponse = res.GetResponseStream();
+            StreamReader streamRead = new StreamReader(streamResponse);
+
+            // Save and print the response
+            string responseString = await streamRead.ReadToEndAsync();
+            System.Diagnostics.Debug.WriteLine(responseString);
+
+            // Create an object based on the response
+            return JsonConvert.DeserializeObject<UPCDatabaseObject>(responseString);
         }
 
         /// <summary>
