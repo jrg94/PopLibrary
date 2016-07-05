@@ -82,6 +82,7 @@ namespace PopLibrary
             String date = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
 
             // Attempt to make a http request that hits Amazon's Product API with an item lookup
+            // Reference: http://www.thatsoftwaredude.com/content/5094/implementing-amazons-product-advertising-api-in-c
             try
             {
                 HttpWebRequest reqAmazon = (HttpWebRequest)WebRequest.Create("http://webservices.amazon.com/onca/xml?" +
