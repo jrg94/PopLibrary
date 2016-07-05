@@ -73,24 +73,49 @@ namespace PopLibrary
             SetupBookList();
         }
 
+        /// <summary>
+        /// A helper method which runs an http request for the UPC code on
+        /// Amazon's database
+        /// </summary>
         private async void CheckAmazonDatabase()
         {
-            HttpWebRequest reqAmazon = (HttpWebRequest)WebRequest.Create("http://webservices.amazon.com/onca/xml?" +
-                                                                         "Service=AWSECommerceService&" +
-                                                                         "AWSAccessKeyId =" + keys.amazonAccessKeyId + "&" +
-                                                                         "AssociateTag =[Associate ID]&" +
-                                                                         "Operation=ItemLookup&" +
-                                                                         "ItemId=B00008OE6I" +
-                                                                         "IdType=UPC&" +
-                                                                         "&Timestamp=[YYYY-MM-DDThh:mm:ssZ]" +
-                                                                         "&Signature=[Request Signature]");
-            HttpWebResponse resAmazon = (HttpWebResponse)(await reqAmazon.GetResponseAsync().ConfigureAwait(false));
+            String date = DateTime.UtcNow.ToString("yyyy-MM-ddTHH:mm:ssZ");
 
-            Stream streamAmazon = resAmazon.GetResponseStream();
-            StreamReader streamReadAmazon = new StreamReader(streamAmazon);
+            // Attempt to make a http request that hits Amazon's Product API with an item lookup
+            try
+            {
+                HttpWebRequest reqAmazon = (HttpWebRequest)WebRequest.Create("http://webservices.amazon.com/onca/xml?" +
+                                                                             "Service=AWSECommerceService&" +
+                                                                             "AWSAccessKeyId =" + keys.amazonAccessKeyId + "&" +
+                                                                             "AssociateTag =555&" +
+                                                                             "Operation=ItemLookup&" +
+                                                                             "ItemId=B00008OE6I" +
+                                                                             "IdType=UPC" +
+                                                                             "&Timestamp=" + date +
+                                                                             "&Signature=[Request Signature]");
+                HttpWebResponse resAmazon = (HttpWebResponse)(await reqAmazon.GetResponseAsync().ConfigureAwait(false));
 
-            string responseAmazon = await streamReadAmazon.ReadToEndAsync();
-            System.Diagnostics.Debug.WriteLine(responseAmazon);
+                Stream streamAmazon = resAmazon.GetResponseStream();
+                StreamReader streamReadAmazon = new StreamReader(streamAmazon);
+
+                string responseAmazon = await streamReadAmazon.ReadToEndAsync();
+                System.Diagnostics.Debug.WriteLine(responseAmazon);
+            }
+            // Through an error if the request is bad
+            catch (WebException wex)
+            {
+                if (wex.Response != null)
+                {
+                    using (var errorResponse = (HttpWebResponse)wex.Response)
+                    {
+                        using (var reader = new StreamReader(errorResponse.GetResponseStream()))
+                        {
+                            string error = reader.ReadToEnd();
+                            System.Diagnostics.Debug.WriteLine(error);
+                        }
+                    }
+                }
+            }
         }
 
         /// <summary>
