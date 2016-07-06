@@ -3,11 +3,14 @@ using System.IO;
 using System.Net;
 using Windows.UI.Xaml;
 using Windows.UI.Xaml.Controls;
+using Windows.UI.Xaml.Navigation;
 using Newtonsoft.Json;
 using Windows.Storage;
 using PopLibrary.DatabasesClasses;
 using PopLibrary.UPCDatabaseModels;
 using System.Threading.Tasks;
+using Windows.UI.ApplicationSettings;
+using ApplicationSettings;
 
 // The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
 
@@ -160,6 +163,40 @@ namespace PopLibrary
             var file = await folder.GetFileAsync("config.txt");
             var contents = await Windows.Storage.FileIO.ReadTextAsync(file);
             return contents;
+        }
+
+        /// <summary>
+        /// Invoked when this page is about to be displayed in a Frame.
+        /// </summary>
+        /// <param name="e">Event data that describes how this page was reached.  The Parameter
+        /// property is typically used to configure the page.</param>
+        protected override void OnNavigatedTo(NavigationEventArgs e)
+        {
+            SettingsPane.GetForCurrentView().CommandsRequested += onCommandsRequested;
+        }
+
+        protected override void OnNavigatedFrom(NavigationEventArgs e)
+        {
+            base.OnNavigatedFrom(e);
+
+            SettingsPane.GetForCurrentView().CommandsRequested -= onCommandsRequested;
+        }
+
+        /// <summary>
+        /// Handler for the CommandsRequested event. Add custom SettingsCommands here.
+        /// </summary>
+        /// <param name="e">Event data that includes a vector of commands (ApplicationCommands)</param>
+        void onCommandsRequested(SettingsPane settingsPane, SettingsPaneCommandsRequestedEventArgs e)
+        {
+            SettingsCommand defaultsCommand = new SettingsCommand("defaults", "Defaults",
+                (handler) =>
+                {
+                    // SettingsFlyout1 is defined in "SettingsFlyout1.xaml"
+                    SettingsFlyoutDefaults sfd = new SettingsFlyoutDefaults();
+                    sfd.Show();
+                });
+            e.Request.ApplicationCommands.Add(defaultsCommand);
+
         }
     }
 }
