@@ -18,14 +18,25 @@
     HeaderForeground="White" 
     HeaderBackground="#00b2f0"
     Background="White"
-    mc:Ignorable="d">
+    mc:Ignorable="d" Height="1338">
 
     <StackPanel>
         <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}">
-            <TextBlock Text="Toggle Switch" Style="{StaticResource TitleTextBlockStyle}"/>
-            <TextBlock Margin="0,0,0,25" Text="Use toggle switches to let users set Boolean values." Style="{StaticResource BodyTextBlockStyle}"/>
-            <ToggleSwitch Margin="-6,0,0,0" Header = "Download updates automatically" HorizontalAlignment="Left" HorizontalContentAlignment="Left"/>
-            <ToggleSwitch Margin="-6,0,0,0" Header = "Install updates automatically" HorizontalAlignment="Stretch"/>
+            <TextBlock Text="Backgroud Color" Style="{StaticResource TitleTextBlockStyle}"/>
+            <TextBlock Margin="0,0,0,25" Text="Use the tiles below to select the appropriate background color for the app." Style="{StaticResource BodyTextBlockStyle}"/>
+            <StackPanel Orientation="Horizontal">
+                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="AliceBlue"></Button>
+                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="AntiqueWhite"></Button>
+                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Aqua"></Button>
+                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Azure"></Button>
+                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Beige"></Button>
+                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Bisque"></Button>
+                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Black"></Button>
+                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="BlanchedAlmond"></Button>
+                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Blue"></Button>
+                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="BlueViolet"></Button>
+                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Brown"></Button>
+            </StackPanel>
         </StackPanel>
 
         <StackPanel Style="{StaticResource SettingsFlyoutSectionStyle}">
