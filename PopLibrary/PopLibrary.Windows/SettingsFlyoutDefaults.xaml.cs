@@ -73,5 +73,11 @@ namespace ApplicationSettings
                 }
             }
         }
+
+        private void ColorChange_Click(object sender, RoutedEventArgs e)
+        {
+            Button b = (Button)sender;
+            // Use b.Background to set the background of the mainpage
+        }
     }
 }

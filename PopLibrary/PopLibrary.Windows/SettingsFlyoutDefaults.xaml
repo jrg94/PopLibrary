@@ -25,17 +25,17 @@
             <TextBlock Text="Backgroud Color" Style="{StaticResource TitleTextBlockStyle}"/>
             <TextBlock Margin="0,0,0,25" Text="Use the tiles below to select the appropriate background color for the app." Style="{StaticResource BodyTextBlockStyle}"/>
             <StackPanel Orientation="Horizontal">
-                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="AliceBlue"></Button>
-                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="AntiqueWhite"></Button>
-                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Aqua"></Button>
-                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Azure"></Button>
-                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Beige"></Button>
-                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Bisque"></Button>
-                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Black"></Button>
-                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="BlanchedAlmond"></Button>
-                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Blue"></Button>
-                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="BlueViolet"></Button>
-                <Button MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Brown"></Button>
+                <Button Name="Color1" Click="ColorChange_Click" MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="AliceBlue"></Button>
+                <Button Name="Color2" Click="ColorChange_Click" MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="AntiqueWhite"></Button>
+                <Button Name="Color3" Click="ColorChange_Click" MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Aqua"></Button>
+                <Button Name="Color4" Click="ColorChange_Click" MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Azure"></Button>
+                <Button Name="Color5" Click="ColorChange_Click" MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Beige"></Button>
+                <Button Name="Color6" Click="ColorChange_Click" MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Bisque"></Button>
+                <Button Name="Color7" Click="ColorChange_Click" MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Black"></Button>
+                <Button Name="Color8" Click="ColorChange_Click" MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="BlanchedAlmond"></Button>
+                <Button Name="Color9" Click="ColorChange_Click" MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Blue"></Button>
+                <Button Name="Color10" Click="ColorChange_Click" MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="BlueViolet"></Button>
+                <Button Name="Color11" Click="ColorChange_Click" MinWidth="{Binding ActualHeight, RelativeSource={RelativeSource Self}}" MinHeight="{Binding ActualWidth, RelativeSource={RelativeSource Self}}" Background="Brown"></Button>
             </StackPanel>
         </StackPanel>
 
