@@ -8,5 +8,10 @@ The PopLibrary application is a windows application which is developed as a stan
 - Databasing support for loading in large collections
 
 ## How To
-The following section detail specific sections of the applications.
+The following sections detail specific aspects of the applications.
 ### How to Add a Book to the PopLibrary
+### How to Remove a Book from PopLibrary
+### How to Remove _ALL_ Books from PopLibrary
+_CAUTION_: As this section suggests, this option will permanently delete all data from the library
+### How to Loan a Book to a Student
+### How to Return a Book to PopLibrary
