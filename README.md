@@ -19,13 +19,18 @@ The following sections detail specific aspects of the application.
 5. Congratulations! You have added a book to your library. If something didn't work, try looking through the troubleshooting section below. Otherwise, report the issue here in GitHub.
 
 #### How to Remove a Book from PopLibrary
+_This feature is currently not implemented_
 
 #### How to Remove _ALL_ Books from PopLibrary
 _CAUTION_: As this section suggests, this option will permanently delete all data from the library.
 
+_This feature is currently not implemented_
+
 #### How to Loan a Book to a Student
+_This feature is currently not implemented_
 
 #### How to Return a Book to PopLibrary
+_This feature is currently not implemented_
 
 ## Troubleshooting
 The following sections detail specific aspects of the application.
