@@ -8,8 +8,8 @@ The PopLibrary application is a windows application which is developed as a stan
 - Databasing support for loading in large collections
 
 ## How To
-The following sections detail specific aspects of the applications.
-### How to Add a Book to the PopLibrary
+The following sections detail specific aspects of the application.
+### How to Add a Book to PopLibrary
 1. Launch PopLibrary.
 2. Select the search bar.
 3. Make sure your barcode scanner work, then scan the barcode (alternatively, you can type the UPC code directly into the search bar).
@@ -21,3 +21,8 @@ The following sections detail specific aspects of the applications.
 _CAUTION_: As this section suggests, this option will permanently delete all data from the library.
 ### How to Loan a Book to a Student
 ### How to Return a Book to PopLibrary
+## Troubleshooting
+The following sections detail specific aspects of the application.
+### Troubleshooting Book Adding
+1. Make sure that your barcode scanner is entering text directly into the search box before hitting "Add Book".
+2. It's possible the book you're looking for does not exist in any of the databases that PopLibrary references during its search. Currently, manually entering books is not supported. However, you can try adding a copy of your book to upcdatabse.org. This should allow PopLibrary to find the book you are hoping to add.
