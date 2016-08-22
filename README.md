@@ -25,4 +25,4 @@ _CAUTION_: As this section suggests, this option will permanently delete all dat
 The following sections detail specific aspects of the application.
 ### Troubleshooting Book Adding
 1. Make sure that your barcode scanner is entering text directly into the search box before hitting "Add Book".
-2. If the above fails, it is possible the book you are looking for does not exist in any of the databases that PopLibrary references during its search. Currently, manually entering books is not supported. However, you can try adding a copy of your book to [upcdatabase.org](upcdatabase.org). This should allow PopLibrary to find the book you are hoping to add.
+2. If the above fails, it is possible the book you are looking for does not exist in any of the databases that PopLibrary references during its search. Currently, manually entering books is not supported. However, you can try adding a copy of your book to [upcdatabase.org](http://www.upcdatabase.org). This should allow PopLibrary to find the book you are hoping to add.
