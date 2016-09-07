@@ -13,7 +13,7 @@ the folder are as follows:
 
 ## Naming Convention
 
-For this project, we are following the .NET standard for software versions:
+For this project, we are following something similar to the .NET standard for software versions:
 (Major version).(Minor version).(Revision number).(Build number)
 
 If we were to release a version of PopLibrary today (9/7/2016), the version number might look like the following:
