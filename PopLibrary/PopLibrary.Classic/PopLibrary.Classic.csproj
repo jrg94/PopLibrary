@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{908BC0F6-79A5-4190-953D-9624494FF2F0}</ProjectGuid>
+    <ProjectGuid>{E60351BB-E141-496D-BCF4-FA5B4AC7FC70}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>PopLibrary.Classic</RootNamespace>
