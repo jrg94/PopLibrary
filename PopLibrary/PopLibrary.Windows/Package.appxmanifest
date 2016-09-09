@@ -1,6 +1,6 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Package xmlns="http://schemas.microsoft.com/appx/2010/manifest" xmlns:m2="http://schemas.microsoft.com/appx/2013/manifest">
-  <Identity Name="5dd16413-908e-4882-9bb8-d98b38c44b1f" Publisher="CN=JRG94" Version="1.0.0.0" />
+  <Identity Name="5dd16413-908e-4882-9bb8-d98b38c44b1f" Publisher="CN=JRG94" Version="0.4.23.0" />
   <Properties>
     <DisplayName>PopLibrary.Windows</DisplayName>
     <PublisherDisplayName>JRG94</PublisherDisplayName>
