@@ -10,7 +10,7 @@ public class Main {
 		// Set the service:
 		AWSECommerceService service = new AWSECommerceService();
 
-		service.setHandlerResolver(new AwsHandlerResolver("<SECRET KEY>"));
+		service.setHandlerResolver(new AwsHandlerResolver("<SECRET_KEY>"));
 		
 		// Set the service port:
 		com.ECS.client.jax.AWSECommerceServicePortType port = service.getAWSECommerceServicePort();
@@ -23,13 +23,13 @@ public class Main {
 		itemRequest.setKeywords("dog");
 		itemRequest.getResponseGroup().add("Large");
 		ItemSearch ItemElement= new ItemSearch();
-		ItemElement.setAWSAccessKeyId("<ACCESS KEY>");
-		ItemElement.setAssociateTag("<ASSOCIATE TAG");
+		ItemElement.setAWSAccessKeyId("<ACCESS_KEY>");
+		ItemElement.setAssociateTag("<ASSOCIATE_TAG>");
 		ItemElement.getRequest().add(itemRequest);
 
 		// Call the Web service operation and store the response in the response object:
 		ItemSearchResponse response = port.itemSearch(ItemElement);
-		System.out.println(response.getItems());
+		response.getItems().forEach(itemList -> itemList.getItem().forEach(item -> System.out.println(item.getItemAttributes().getTitle())));
 	}
 
 }
