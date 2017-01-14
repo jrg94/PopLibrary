@@ -1,3 +1,4 @@
+package com.cybrotronics.poplibrary;
 import com.ECS.client.jax.AWSECommerceService;
 import com.ECS.client.jax.ItemSearch;
 import com.ECS.client.jax.ItemSearchRequest;
@@ -9,7 +10,7 @@ public class Main {
 		// Set the service:
 		AWSECommerceService service = new AWSECommerceService();
 
-		//service.setHandlerResolver(new AwsHandlerResolver("<SECRET KEY>"));
+		service.setHandlerResolver(new AwsHandlerResolver("<SECRET KEY>"));
 		
 		// Set the service port:
 		com.ECS.client.jax.AWSECommerceServicePortType port = service.getAWSECommerceServicePort();
