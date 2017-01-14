@@ -1,5 +1,7 @@
-import javax.xml.ws.handler.HandlerResolver;
 import com.ECS.client.jax.AWSECommerceService;
+import com.ECS.client.jax.ItemSearch;
+import com.ECS.client.jax.ItemSearchRequest;
+import com.ECS.client.jax.ItemSearchResponse;
 
 public class Main {
 
@@ -9,24 +11,23 @@ public class Main {
 
 		//service.setHandlerResolver(new AwsHandlerResolver("<SECRET KEY>"));
 		
-		//Set the service port:
+		// Set the service port:
 		com.ECS.client.jax.AWSECommerceServicePortType port = service.getAWSECommerceServicePort();
 
-		//Get the operation object:
-		com.ECS.client.jax.ItemSearchRequest itemRequest = new com.ECS.client.jax.ItemSearchRequest();
+		// Get the operation object:
+		ItemSearchRequest itemRequest = new ItemSearchRequest();
 
-		//Fill in the request object:
+		// Fill in the request object:
 		itemRequest.setSearchIndex("Books");
 		itemRequest.setKeywords("dog");
 		itemRequest.getResponseGroup().add("Large");
-		com.ECS.client.jax.ItemSearch ItemElement= new com.ECS.client.jax.ItemSearch();
+		ItemSearch ItemElement= new ItemSearch();
 		ItemElement.setAWSAccessKeyId("<ACCESS KEY>");
 		ItemElement.setAssociateTag("<ASSOCIATE TAG");
 		ItemElement.getRequest().add(itemRequest);
 
-		//Call the Web service operation and store the response
-		//in the response object:
-		com.ECS.client.jax.ItemSearchResponse response = port.itemSearch(ItemElement);
+		// Call the Web service operation and store the response in the response object:
+		ItemSearchResponse response = port.itemSearch(ItemElement);
 		System.out.println(response.getItems());
 	}
 
