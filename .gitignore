@@ -280,3 +280,4 @@ $RECYCLE.BIN/
 # Windows shortcuts
 *.lnk
 PopLibrary/PopLibrary.Shared/config.txt
+*.key
