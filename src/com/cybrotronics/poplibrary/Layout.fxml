@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.SplitPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+
+
+<SplitPane dividerPositions="0.13592233009708737" orientation="VERTICAL" xmlns="http://javafx.com/javafx/8.0.111" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.cybrotronics.poplibrary.LayoutController">
+   <items>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <TextField fx:id="searchBar" alignment="CENTER" />
+         </children>
+      </AnchorPane>
+    <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="100.0" prefWidth="160.0">
+         <children>
+            <ListView fx:id="bookList" prefHeight="200.0" prefWidth="200.0" />
+         </children>
+      </AnchorPane>
+   </items>
+</SplitPane>
