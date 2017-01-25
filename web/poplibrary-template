@@ -4,16 +4,23 @@
      * The basic template file for poplibrary.
      */
 
-    echo "PopLibrary";
-    $var = "purple";
-    $num = 6;
+    if (is_user_logged_in()) {
+        echo "PopLibrary";
+        $var = "purple";
+        $num = 6;
 
-    function myTest() {
-        global $var;
-        echo $var;
+        function myTest() {
+            global $var;
+            echo $var;
+        }
+        myTest();
+
+        $cars = array("Toyota", "Jeep", "Honda");
+        var_dump($cars);
+
+        class Item {
+
+        }
     }
-    myTest();
 
-    $cars = array("Toyota", "Jeep", "Honda");
-    var_dump($cars);
 ?>
