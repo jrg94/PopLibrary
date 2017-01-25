@@ -12,6 +12,7 @@
     } else {
         // Show login box otherwise
         // Potentially put wp_redirect here for prototype
+        do_shortcode( '[theme-my-login]' );
     }
 
 ?>
