@@ -4,23 +4,14 @@
      * The basic template file for poplibrary.
      */
 
-    if (is_user_logged_in()) {
-        echo "PopLibrary";
-        $var = "purple";
-        $num = 6;
+    if ( is_user_logged_in ) {
+        // Open library if user is logged in
 
-        function myTest() {
-            global $var;
-            echo $var;
-        }
-        myTest();
+        wp_get_current_user(); // Grab library information if it exists
 
-        $cars = array("Toyota", "Jeep", "Honda");
-        var_dump($cars);
-
-        class Item {
-
-        }
+    } else {
+        // Show login box otherwise
+        // Potentially put wp_redirect here for prototype
     }
 
 ?>
