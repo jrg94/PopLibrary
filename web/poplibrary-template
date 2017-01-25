@@ -4,7 +4,7 @@
      * The basic template file for poplibrary.
      */
 
-    echo "PopLibrary<br>";
+    echo "PopLibrary";
     $var = "purple";
     $num = 6;
 
@@ -13,4 +13,7 @@
         echo $var;
     }
     myTest();
+
+    $cars = array("Toyota", "Jeep", "Honda");
+    var_dump($cars);
 ?>
