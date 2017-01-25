@@ -7,12 +7,18 @@
     if ( is_user_logged_in ) {
         // Open library if user is logged in
 
-        wp_get_current_user(); // Grab library information if it exists
+        // Grab library information if it exists
+        get_library(wp_get_current_user());
 
     } else {
         // Show login box otherwise
         // Potentially put wp_redirect here for prototype
         do_shortcode( '[theme-my-login]' );
+    }
+
+    // Generates view based on supplied user
+    function get_library($pop_user) {
+        echo $pop_user->user_login;
     }
 
 ?>
