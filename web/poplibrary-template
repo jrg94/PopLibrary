@@ -1,0 +1,16 @@
+<?php
+
+    /**
+     * The basic template file for poplibrary.
+     */
+
+    echo "PopLibrary<br>";
+    $var = "purple";
+    $num = 6;
+
+    function myTest() {
+        global $var;
+        echo $var;
+    }
+    myTest();
+?>
