@@ -1,6 +1,8 @@
 <?php
 
     /**
+	 * Template Name: PopLibrary
+	 *
      * The basic template file for poplibrary.
      */
 
