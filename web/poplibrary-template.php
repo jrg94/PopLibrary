@@ -40,13 +40,15 @@
             wp_enqueue_style( 'pl-style' );
         }
 
+        /**
+         * Loads the entire pop library
+         */
         public function load_pl() {
             if ( is_user_logged_in ) {
                 // Open library if user is logged in
 
                 // Grab library information if it exists
                 get_library(wp_get_current_user());
-                pop_library();
 
             } else {
                 // Show login box otherwise
@@ -55,10 +57,15 @@
             }
         }
 
-        // Generates view based on supplied user
+        /**
+         * Generates view based on supplied user
+         */
         function get_library($pop_user) {
             echo $pop_user->user_login;
         }
     }
+
+    $lib = new PopLibrary;
+    $lib->run();
 
 ?>
