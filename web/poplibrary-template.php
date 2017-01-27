@@ -21,12 +21,14 @@
      add_action( 'wp_enqueue_scripts', 'load_css_js');
 
      wp_head();
+
+
 ?>
 <!--<script type="text/javascript" src="https://cybrotronics.com/wp-content/themes/colormag/js/pl.js"></script><div class="dBackgroundBox" id="bgModBox">
--->
 <p>
   <a id="bgModBox" onclick="ModifyBGColor('bgModBox','#FF0000');">Click here to modify the background color!</a>
 </p>
+-->
 
 <div class="box">
   <div id="pl-library">This is the library panel</div>
