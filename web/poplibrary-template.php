@@ -14,7 +14,8 @@
         public function run() {
             add_action( 'pop_library', array( $this, 'enqueue_pl_scripts' ));
             add_action( 'pop_library', array( $this, 'enqueue_pl_styles'));
-            add_action( 'load_pl', array( $this, 'load_pl'));
+            add_action( 'wp_ajax_load_pl', array( $this, 'load_pl'));   // Behavior for logged in users
+            add_action( 'wp_ajax_nopriv_load_pl', array( $this, 'load_pl'));   // Behavior for logged out users
         }
 
         /**
