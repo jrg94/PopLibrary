@@ -24,8 +24,11 @@
 ?>
 <!--<script type="text/javascript" src="https://cybrotronics.com/wp-content/themes/colormag/js/pl.js"></script><div class="dBackgroundBox" id="bgModBox">
 -->
-<p><a id="bgModBox" onclick="ModifyBGColor('bgModBox','#FF0000');">Click here to modify the background color!</a></p>
-</div>
+<p>
+  <a id="bgModBox" onclick="ModifyBGColor('bgModBox','#FF0000');">Click here to modify the background color!</a>
+</p>
 
-<div id="pl-library">This is the library panel</div>
-<div id="pl-search">This is the search panel</div>
+<div class="box">
+  <div id="pl-library">This is the library panel</div>
+  <div id="pl-search">This is the search panel</div>
+</div>
