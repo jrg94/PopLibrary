@@ -14,7 +14,7 @@
 Route::get('/', function () {
 
     // Grabs our entire book table from the database
-    $books = DB::table('books')->get();
+    $books = App\Book::all();
 
     return view('welcome');
 });
