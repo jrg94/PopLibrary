@@ -26,10 +26,7 @@ class BooksController extends Controller
 
     public function store()
     {
-        Book::create([
-            'title' => request('title'),
-            'isbn' => request('isbn')
-        ]);
+        Book::create(request(['title', 'isbn']));
 
         return redirect('/books');
     }
