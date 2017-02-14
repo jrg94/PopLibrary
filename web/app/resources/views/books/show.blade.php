@@ -1,9 +1,5 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
-    <h1>{{ $book->title }}</h1>
-</body>
-</html>
+@extends ('layouts.master')
+
+@section ('content')
+  <h1>{{ $book->title }}</h1>
+@endsection
