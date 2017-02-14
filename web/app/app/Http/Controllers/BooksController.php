@@ -18,4 +18,19 @@ class BooksController extends Controller
     {
         return view('books.show', compact('book'));
     }
+
+    public function create()
+    {
+        return view('books.create');
+    }
+
+    public function store()
+    {
+        Book::create([
+            'title' => request('title'),
+            'isbn' => request('isbn')
+        ]);
+
+        return redirect('/books');
+    }
 }
