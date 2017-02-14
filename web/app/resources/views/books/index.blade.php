@@ -1,9 +1,9 @@
 @extends ('layouts.master')
 
 @section ('content')
-    <ul>
+    <div>
         @foreach ($books as $book)
-            <li>{{ $book->title }}</li>
+            @include ('books.book')
         @endforeach
-    </ul>
+    </div>
 @endsection
