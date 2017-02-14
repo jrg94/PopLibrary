@@ -9,7 +9,7 @@ class BooksController extends Controller
 {
     public function index()
     {
-        $books = Book::all();
+        $books = Book::latest()->get();
 
         return view('books.index', compact('books'));
     }
