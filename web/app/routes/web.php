@@ -11,10 +11,4 @@
 |
 */
 
-Route::get('/', function () {
-
-    // Grabs our entire book table from the database
-    $books = App\Book::all();
-
-    return view('welcome');
-});
+Route::get('/books', 'BooksController@index');
