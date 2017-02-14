@@ -12,5 +12,9 @@
 */
 
 Route::get('/', function () {
+
+    // Grabs our entire book table from the database
+    $books = DB::table('books')->get();
+
     return view('welcome');
 });
