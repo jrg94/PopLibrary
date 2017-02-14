@@ -1,13 +1,9 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <title></title>
-</head>
-<body>
+@extends ('layout')
+
+@section ('content')
     <ul>
         @foreach ($books as $book)
             <li>{{ $book->title }}</li>
         @endforeach
-    </ul>
-</body>
-</html>
+    </ul>    
+@endsection
