@@ -28,10 +28,11 @@ class BooksController extends Controller
     {
         $this->validate(request(), [
             'title' => 'required',
-            'isbn' => 'required'
+            'isbn' => 'required',
+            'asin' => 'required'
         ]);
 
-        Book::create(request(['title', 'isbn']));
+        Book::create(request(['title', 'isbn', 'asin']));
 
         return redirect('/books');
     }
