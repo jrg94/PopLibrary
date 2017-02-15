@@ -7,9 +7,15 @@ use App\Book;
 
 class BooksController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $books = Book::latest()->get();
+        $books = Book::all();
 
         return view('books.index', compact('books'));
     }
@@ -32,7 +38,14 @@ class BooksController extends Controller
             'asin' => 'required'
         ]);
 
-        Book::create(request(['title', 'isbn', 'asin']));
+        // I DON"T GET IT
+        $book = Book::create([
+            'title' => request('title'),
+            'isbn' => request('isbn'),
+            'asin' => request('asin')
+        ]);
+
+        $book->users()->attach(auth()->id);
 
         return redirect('/books');
     }
