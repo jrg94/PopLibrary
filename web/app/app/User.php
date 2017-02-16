@@ -36,20 +36,11 @@ class User extends Authenticatable
     }
 
     /**
-     * Retrieves all the loans this user has lent.
-     * TODO: Come up with a name that makes sense.
+     * Retrieves all the loans associated with this user.
+     * Query to retrieve all loans owned/borrowed.
      */
     public function loans()
     {
-        return $this->hasMany(Loan::class, 'user_id', 'id');
-    }
-
-    /**
-     * Retrieves all the loans this user has received.
-     * TODO: Come up with a name that makes sense.
-     */
-    public function borrows()
-    {
-        return $this->hasMany(Loan::class, 'borrower_id', 'id');
+        return $this->hasMany(Loan::class);
     }
 }
