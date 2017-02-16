@@ -6,6 +6,7 @@
 <p>
     <ul>
         <li>ISBN: {{ $book->isbn }}</li>
+        <li>ASIN: {{ $book->asin }}</li>
         <li>Timestamp: {{ $book->created_at->toFormattedDateString() }}</li>
     </ul>
 </p>

@@ -48,6 +48,6 @@ class BooksController extends Controller
 
         $book->users()->attach(Auth::user()->id);
 
-        return redirect('/books');
+        return redirect('/');
     }
 }
