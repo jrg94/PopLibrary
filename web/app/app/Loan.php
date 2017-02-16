@@ -22,4 +22,12 @@ class Loan extends Model
     {
         return this->belongsTo(User::class, 'borrower_id');
     }
+
+    /**
+     * Retrieves the book for this loan.
+     */
+    public function book()
+    {
+        return this->belongsTo(Book::class);
+    }
 }
