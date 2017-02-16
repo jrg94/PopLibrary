@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use Auth;
 
 class BooksController extends Controller
 {
@@ -15,7 +16,7 @@ class BooksController extends Controller
 
     public function index()
     {
-        $books = Book::all();
+        $books = Auth::user()->books;
 
         return view('books.index', compact('books'));
     }
@@ -38,14 +39,14 @@ class BooksController extends Controller
             'asin' => 'required'
         ]);
 
-        // I DON"T GET IT
+        // Creates the book
         $book = Book::create([
             'title' => request('title'),
             'isbn' => request('isbn'),
             'asin' => request('asin')
         ]);
 
-        $book->users()->attach(auth()->id);
+        $book->users()->attach(Auth::user()->id);
 
         return redirect('/books');
     }

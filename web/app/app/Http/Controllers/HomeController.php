@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use Auth;
 
 class HomeController extends Controller
 {
@@ -24,7 +25,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $books = Book::latest()->get();
+        $books = Auth::user()->books;
 
         return view('home', compact('books'));
     }
