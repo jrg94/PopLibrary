@@ -17,6 +17,11 @@
           <input type="text" id="isbn" name="isbn" required>
         </div>
 
+        <div>
+          <label for="asin">ASIN:</label>
+          <input type="text" id="asin" name="asin" required>
+        </div>
+
         <button type="submit">Submit</button>
 
         @include ('layouts.errors')

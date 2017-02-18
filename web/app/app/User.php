@@ -26,4 +26,21 @@ class User extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * Retrieves any books this user might have.
+     */
+    public function books()
+    {
+        return $this->belongsToMany(Book::class);
+    }
+
+    /**
+     * Retrieves all the loans associated with this user.
+     * Query to retrieve all loans owned/borrowed.
+     */
+    public function loans()
+    {
+        return $this->hasMany(Loan::class);
+    }
 }

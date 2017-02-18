@@ -4,12 +4,19 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Book;
+use Auth;
 
 class BooksController extends Controller
 {
+
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+
     public function index()
     {
-        $books = Book::latest()->get();
+        $books = Auth::user()->books;
 
         return view('books.index', compact('books'));
     }
@@ -28,11 +35,19 @@ class BooksController extends Controller
     {
         $this->validate(request(), [
             'title' => 'required',
-            'isbn' => 'required'
+            'isbn' => 'required',
+            'asin' => 'required'
         ]);
 
-        Book::create(request(['title', 'isbn']));
+        // Creates the book
+        $book = Book::create([
+            'title' => request('title'),
+            'isbn' => request('isbn'),
+            'asin' => request('asin')
+        ]);
 
-        return redirect('/books');
+        $book->users()->attach(Auth::user()->id);
+
+        return redirect('/');
     }
 }
