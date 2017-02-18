@@ -18,7 +18,7 @@
                 <div class="panel-body">
 
                     @foreach ($books as $book)
-                        @include ('books.book')
+                        @include ('books.cover')
                     @endforeach
 
                 </div>
