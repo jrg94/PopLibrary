@@ -7,3 +7,28 @@
 
 // Bootstrap
 @import "node_modules/bootstrap-sass/assets/stylesheets/bootstrap";
+
+html, body, .container {
+    height: 100%;
+}
+
+.navbar-default {
+    background-color: #123456;
+}
+
+.container {
+    display: table;
+    margin-top: -50px;
+    padding: 50px 0 0 0;
+    box-sizing: border-box;
+}
+
+.row {
+    height: 100%;
+    display: table-row;
+}
+
+.row .no-float {
+    display: table-cell;
+    float: none;
+}
