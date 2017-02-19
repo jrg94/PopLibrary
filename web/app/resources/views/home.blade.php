@@ -11,6 +11,7 @@
                     <hr>
                     @include ('books.form.add')
                     <hr>
+                    @include ('books.form.search')
                 </div>
             </div>
         </div>

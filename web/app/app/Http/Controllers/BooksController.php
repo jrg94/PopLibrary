@@ -56,11 +56,9 @@ class BooksController extends Controller
     {
         $amazon = new Amazon(getenv('AMAZON_ACCESS_KEY'), 'US', getenv('AMAZON_SECRET_KEY'));
         $results = $amazon->itemSearch(array('SearchIndex' => 'Books',
+                                     'Keywords' => request('search'),
                                     'AssociateTag' => getenv('AMAZON_ASSOCIATE_TAG')));
 
-        foreach ($results as $result)
-        {
-            echo $result->Title . '<br />';
-        }
+        return view('books.results', compact('results'));
     }
 }
