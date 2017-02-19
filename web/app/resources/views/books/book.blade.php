@@ -1,8 +1,6 @@
 <div class="col-md-3">
     <div class="panel-heading">
-        <a href="/books/{{ $book->id }}">
-            {{ $book->title }}
-        </a>
+        {{ $book->title }}
     </div>
     <div class="panel-body">
         <ul>

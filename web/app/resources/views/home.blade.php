@@ -9,7 +9,8 @@
                 <div class="panel-body">
                     All
                     <hr>
-                    @include ('books.add')
+                    @include ('books.form.add')
+                    <hr>
                 </div>
             </div>
         </div>
