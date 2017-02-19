@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Book;
 use Auth;
+use Amazon;
 
 class BooksController extends Controller
 {
@@ -47,6 +48,8 @@ class BooksController extends Controller
         ]);
 
         $book->users()->attach(Auth::user()->id);
+
+        print_r(Amazon::search('title')->json());
 
         return redirect('/');
     }

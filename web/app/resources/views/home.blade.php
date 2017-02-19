@@ -9,6 +9,7 @@
                 <div class="panel-body">
                     All
                 </div>
+                @include ('books.add')
             </div>
         </div>
         <div class="col-md-9">
