@@ -1,9 +1,9 @@
 @extends ('layouts.app')
 
-@section ('content')
+@section ('library')
     <div>
         @foreach ($results as $result)
-            @echo $result->Title
+            @include('books.item')
         @endforeach
     </div>
 @endsection

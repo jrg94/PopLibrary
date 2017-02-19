@@ -1,6 +1,6 @@
 @extends ('layouts.app')
 
-@section ('content')
+@section ('library')
     <div>
         @foreach ($books as $book)
             @include ('books.book')

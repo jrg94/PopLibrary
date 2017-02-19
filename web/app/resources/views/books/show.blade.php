@@ -1,5 +1,5 @@
 @extends ('layouts.app')
 
-@section ('content')
+@section ('library')
   @include ('books.book')
 @endsection
