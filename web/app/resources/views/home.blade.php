@@ -8,8 +8,9 @@
                 <div class="panel-heading">Filters</div>
                 <div class="panel-body">
                     All
+                    <hr>
+                    @include ('books.add')
                 </div>
-                @include ('books.add')
             </div>
         </div>
         <div class="col-md-9">

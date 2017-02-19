@@ -177,8 +177,7 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
-        // Amazon Dawson Service
-        Dawson\AmazonECS\AmazonECSServiceProvider::class,
+
 
     ],
 
@@ -195,7 +194,7 @@ return [
 
     'aliases' => [
 
-        'Amazon' => Dawson\AmazonECS\AmazonECSFacade::class,
+        'Amazon' => ZendService\Amazon\Amazon::class,
         'App' => Illuminate\Support\Facades\App::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,
         'Auth' => Illuminate\Support\Facades\Auth::class,

@@ -24,6 +24,16 @@ class BooksController extends Controller
 
     public function show(Book $book)
     {
+        $amazon = new Amazon(getenv('AMAZON_ACCESS_KEY'), 'US', getenv('AMAZON_SECRET_KEY'));
+        $results = $amazon->itemSearch(array('SearchIndex' => 'Books',
+                                     'Keywords' => 'php',
+                                    'AssociateTag' => getenv('AMAZON_ASSOCIATE_TAG')));
+
+        foreach ($results as $result)
+        {
+            echo $result->Title . '<br />';
+        }
+
         return view('books.show', compact('book'));
     }
 
@@ -48,8 +58,6 @@ class BooksController extends Controller
         ]);
 
         $book->users()->attach(Auth::user()->id);
-
-        print_r(Amazon::search('title')->json());
 
         return redirect('/');
     }
