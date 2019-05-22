@@ -8,7 +8,7 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.book_list_item.view.*
 
 class BookAdapter (private val books: Array<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
-    class BookViewHolder(val view: View) : RecyclerView.ViewHolder(view) {
+    class BookViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val isbnTextView: TextView = view.isbn_text_view
         val titleTextView: TextView = view.title_text_view
         val authorTextView: TextView = view.author_text_view

@@ -33,7 +33,7 @@ class MainActivity : AppCompatActivity() {
             adapter = viewAdapter
 
         }
-        recyclerView.addItemDecoration(DividerItemDecoration(recyclerView.context, DividerItemDecoration.VERTICAL))
+        //recyclerView.addItemDecoration(DividerItemDecoration(recyclerView.context, DividerItemDecoration.VERTICAL))
     }
 
     /**
