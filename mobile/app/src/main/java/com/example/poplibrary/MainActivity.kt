@@ -2,6 +2,7 @@ package com.example.poplibrary
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.support.v7.widget.DividerItemDecoration
 import android.widget.TextView
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.LinearLayoutManager
@@ -40,5 +41,6 @@ class MainActivity : AppCompatActivity() {
             adapter = viewAdapter
 
         }
+        recyclerView.addItemDecoration(DividerItemDecoration(recyclerView.context, DividerItemDecoration.VERTICAL))
     }
 }
