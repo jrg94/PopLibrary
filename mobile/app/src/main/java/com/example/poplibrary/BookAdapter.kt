@@ -20,7 +20,7 @@ import java.net.URL
 
 class BookAdapter (private val books: List<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterable {
 
-    private var booksSearchList: List<Book>? = null
+    private var booksSearchList: List<Book> = books
 
     class BookViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val isbnTextView: TextView = view.isbn_text_view
@@ -37,16 +37,16 @@ class BookAdapter (private val books: List<Book>) : RecyclerView.Adapter<BookAda
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        holder.isbnTextView.text = books[position].isbn13
-        holder.titleTextView.text = books[position].title
-        holder.authorTextView.text = books[position].author
-        val image: Bitmap? = ImageLoader().execute(books[position].coverImageURL).get()
+        holder.isbnTextView.text = booksSearchList[position].isbn13
+        holder.titleTextView.text = booksSearchList[position].title
+        holder.authorTextView.text = booksSearchList[position].author
+        val image: Bitmap? = ImageLoader().execute(booksSearchList[position].coverImageURL).get()
         if (image != null) {
             holder.coverImage.setImageBitmap(image)
         }
     }
 
-    override fun getItemCount() = books.size
+    override fun getItemCount() = booksSearchList.size
 
     override fun getFilter(): Filter {
         return object: Filter() {
