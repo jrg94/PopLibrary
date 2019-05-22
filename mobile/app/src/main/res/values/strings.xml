@@ -2,4 +2,6 @@
     <string name="app_name">PopLibrary</string>
     <string name="edit_message">Enter a message</string>
     <string name="button_send">Send</string>
+    <string name="isbn_label">ISBN:</string>
+    <string name="title_label">Title:</string>
 </resources>
