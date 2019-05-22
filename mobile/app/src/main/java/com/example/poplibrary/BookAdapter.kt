@@ -21,7 +21,7 @@ class BookAdapter (private val books: Array<Book>) : RecyclerView.Adapter<BookAd
     }
 
     override fun onBindViewHolder(holder: BookViewHolder, position: Int) {
-        holder.isbnTextView.text = books[position].ISBN
+        holder.isbnTextView.text = books[position].isbn
         holder.titleTextView.text = books[position].title
     }
 

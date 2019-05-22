@@ -3,7 +3,6 @@ package com.example.poplibrary
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.DividerItemDecoration
-import android.widget.TextView
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.LinearLayoutManager
 
@@ -17,14 +16,7 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
-        val book = Book("174-44-3221")
-        book.pageCount = 100
-
-        val textView = findViewById<TextView>(R.id.textView).apply {
-            text = book.pageCount.toString()
-        }
-
-        val books = arrayOf(Book("11431408174"), Book("34109170934"))
+        val books = generateBooks()
 
         viewManager = LinearLayoutManager(this)
         viewAdapter = BookAdapter(books)
@@ -42,5 +34,15 @@ class MainActivity : AppCompatActivity() {
 
         }
         recyclerView.addItemDecoration(DividerItemDecoration(recyclerView.context, DividerItemDecoration.VERTICAL))
+    }
+
+    /**
+     * Generates an array of books.
+     */
+    private fun generateBooks(): Array<Book> {
+        return arrayOf(
+            Book(isbn = "11431408174"),
+            Book(isbn = "34109170934")
+        )
     }
 }

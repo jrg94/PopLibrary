@@ -2,10 +2,13 @@ package com.example.poplibrary
 
 import java.util.*
 
-class Book(val ISBN: String) {
-    var title: String = ""
-    var pageCount: Int = -1
-    var language: String = ""
-    var editor: String = ""
-    var dateOfPublication: Date = Date()
-}
+class Book(
+    val isbn: String? = null,
+    val title: String? = null,
+    val author: String? = null,
+    val editor: String? = null,
+    val language: String? = null,
+    val coverImageURL: String? = null,
+    val pageCount: Int? = null,
+    val dateOfPublication: Date? = null
+) { }
