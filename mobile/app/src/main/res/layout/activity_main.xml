@@ -15,5 +15,14 @@
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintTop_toTopOf="parent"/>
+    <TextView
+            android:layout_width="123dp"
+            android:layout_height="63dp" tools:layout_editor_absoluteY="27dp"
+            tools:layout_editor_absoluteX="31dp" android:id="@+id/textView" android:hint="@string/edit_message"/>
+    <Button
+            android:text="Button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content" tools:layout_editor_absoluteY="27dp"
+            tools:layout_editor_absoluteX="198dp" android:id="@+id/button" tools:text="@string/button_send"/>
 
 </android.support.constraint.ConstraintLayout>
