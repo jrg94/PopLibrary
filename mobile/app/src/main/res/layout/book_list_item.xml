@@ -4,28 +4,24 @@
               android:layout_width="match_parent"
               android:layout_height="wrap_content">
 
-    <TableLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent">
-
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/isbn_label"
-                    android:text="@string/isbn_label"/>
-            <TextView
-                    android:layout_width="421dp"
-                    android:layout_height="wrap_content" android:id="@+id/isbn_text_view"
-                    android:gravity="center_horizontal|center_vertical"/>
-        </TableRow>
-        <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-            <TextView
-                    android:text="@string/title_label"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/title_label"/>
-            <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content" android:id="@+id/title_text_view"/>
-        </TableRow>
-    </TableLayout>
+    <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+        <TextView
+                android:text="@string/title_label"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/title_label" android:paddingLeft="10"
+                android:paddingRight="10"/>
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/title_text_view"/>
+    </TableRow>
+    <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/isbn_label"
+                android:text="@string/isbn_label" android:paddingRight="10" android:paddingLeft="10"/>
+        <TextView
+                android:layout_width="421dp"
+                android:layout_height="wrap_content" android:id="@+id/isbn_text_view"
+        />
+    </TableRow>
 </LinearLayout>
