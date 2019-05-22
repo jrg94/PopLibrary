@@ -11,4 +11,8 @@ class Book(
     val coverImageURL: String? = null,
     val pageCount: Int? = null,
     val dateOfPublication: Date? = null
-) { }
+) {
+    override fun toString(): String {
+        return title!!
+    }
+}

@@ -1,15 +1,19 @@
 package com.example.poplibrary
 
+import android.app.SearchManager
+import android.content.Context
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.LinearLayoutManager
+import android.widget.SearchView
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    private lateinit var viewAdapter: BookAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
+    private lateinit var searchView: SearchView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -18,7 +22,7 @@ class MainActivity : AppCompatActivity() {
         val books = generateBooks()
 
         viewManager = LinearLayoutManager(this)
-        viewAdapter = BookAdapter(books)
+        viewAdapter = BookAdapter(books.toList())
 
         recyclerView = findViewById<RecyclerView>(R.id.book_recycler_view).apply {
             // use this setting to improve performance if you know that changes
@@ -32,6 +36,26 @@ class MainActivity : AppCompatActivity() {
             adapter = viewAdapter
 
         }
+
+        val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
+        searchView = findViewById(R.id.book_search)
+        searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
+        searchView.maxWidth = Integer.MAX_VALUE
+
+        // listening to search query text change
+        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
+            override fun onQueryTextSubmit(query: String): Boolean {
+                // filter recycler view when query submitted
+                viewAdapter.filter.filter(query)
+                return false
+            }
+
+            override fun onQueryTextChange(query: String): Boolean {
+                // filter recycler view when text is changed
+                viewAdapter.filter.filter(query)
+                return false
+            }
+        })
     }
 
     /**

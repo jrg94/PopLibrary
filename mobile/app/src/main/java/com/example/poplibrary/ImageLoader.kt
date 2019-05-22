@@ -12,7 +12,6 @@ class ImageLoader: AsyncTask<String, Void, Bitmap>() {
     override fun doInBackground(vararg params: String?): Bitmap? {
         var image: Bitmap? = null
         try {
-            Log.d("IMAGE", "Attempting to load image")
             val io: InputStream = URL(params[0]).openStream()
             image = BitmapFactory.decodeStream(io)
         } catch (e: Exception) {

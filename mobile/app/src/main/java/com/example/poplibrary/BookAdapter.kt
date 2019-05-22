@@ -11,12 +11,17 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.book_list_item.view.*
 import android.graphics.drawable.Drawable
 import android.util.Log
+import android.widget.Filter
+import android.widget.Filterable
 import java.io.InputStream
 import java.lang.Exception
 import java.net.URL
 
 
-class BookAdapter (private val books: Array<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>() {
+class BookAdapter (private val books: List<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterable {
+
+    private var booksSearchList: List<Book>? = null
+
     class BookViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val isbnTextView: TextView = view.isbn_text_view
         val titleTextView: TextView = view.title_text_view
@@ -43,4 +48,31 @@ class BookAdapter (private val books: Array<Book>) : RecyclerView.Adapter<BookAd
 
     override fun getItemCount() = books.size
 
+    override fun getFilter(): Filter {
+        return object: Filter() {
+            override fun performFiltering(constraint: CharSequence?): FilterResults {
+                val charString = constraint.toString()
+                if (charString.isEmpty()) {
+                    booksSearchList = books
+                } else {
+                    val filteredList = ArrayList<Book>()
+                    for (book in books) {
+                        if (book.title!!.toLowerCase().contains(charString.toLowerCase())) {
+                            filteredList.add(book)
+                        }
+                    }
+                    booksSearchList = filteredList
+                }
+
+                val filterResults = Filter.FilterResults()
+                filterResults.values = booksSearchList
+                return filterResults
+            }
+
+            override fun publishResults(constraint: CharSequence, results: FilterResults) {
+                booksSearchList = results.values as ArrayList<Book>
+                notifyDataSetChanged()
+            }
+        }
+    }
 }
