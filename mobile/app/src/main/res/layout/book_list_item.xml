@@ -15,16 +15,6 @@
                 android:layout_height="wrap_content" android:id="@+id/title_text_view"
                 android:hint="@string/unavailable_book_info"/>
     </TableRow>
-    <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
-        <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/isbn_label"
-                android:text="@string/isbn_label" android:paddingRight="10dp" android:paddingLeft="10dp"/>
-        <TextView
-                android:layout_width="421dp"
-                android:layout_height="wrap_content" android:id="@+id/isbn_text_view"
-                android:hint="@string/unavailable_book_info"/>
-    </TableRow>
     <TableRow
             android:layout_width="match_parent"
             android:layout_height="match_parent">
@@ -35,6 +25,17 @@
                 android:paddingRight="10dp"/>
         <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content" android:id="@+id/author_text_view"/>
+                android:layout_height="wrap_content" android:id="@+id/author_text_view"
+                android:hint="@string/unavailable_book_info"/>
+    </TableRow>
+    <TableRow android:layout_width="match_parent" android:layout_height="match_parent">
+        <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" android:id="@+id/isbn_label"
+                android:text="@string/isbn_label" android:paddingRight="10dp" android:paddingLeft="10dp"/>
+        <TextView
+                android:layout_width="421dp"
+                android:layout_height="wrap_content" android:id="@+id/isbn_text_view"
+                android:hint="@string/unavailable_book_info"/>
     </TableRow>
 </LinearLayout>

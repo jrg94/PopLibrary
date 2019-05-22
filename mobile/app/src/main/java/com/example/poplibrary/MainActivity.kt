@@ -41,8 +41,8 @@ class MainActivity : AppCompatActivity() {
      */
     private fun generateBooks(): Array<Book> {
         return arrayOf(
-            Book(isbn = "978-0743273565", title = "The Great Gatsby", pageCount = 180, editor = "Scribner", author = "F. Scott Fitzgerald"),
-            Book(isbn = "34109170934")
+            Book(isbn13 = "978-0743273565", title = "The Great Gatsby", pageCount = 180, editor = "Scribner", author = "F. Scott Fitzgerald"),
+            Book(isbn13 = "978-0143039433", title = "The Grapes of Wrath", pageCount = 464, editor = "Penguin Classics", author = "John Steinbeck")
         )
     }
 }

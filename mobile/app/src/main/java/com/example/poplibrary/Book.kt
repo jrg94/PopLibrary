@@ -3,7 +3,7 @@ package com.example.poplibrary
 import java.util.*
 
 class Book(
-    val isbn: String? = null,
+    val isbn13: String? = null,
     val title: String? = null,
     val author: String? = null,
     val editor: String? = null,
