@@ -44,7 +44,8 @@ class MainActivity : AppCompatActivity() {
             Book(isbn13 = "978-0143039433", title = "The Grapes of Wrath", pageCount = 464, editor = "Penguin Classics", author = "John Steinbeck", coverImageURL = "http://ecx.images-amazon.com/images/I/41adOkkXUzL._SL160_.jpg"),
             Book(isbn13 = "978-0452262935", title = "Nineteen Eighty-Four", pageCount = 304, editor = "Berkley", author = "George Orwell", coverImageURL = "http://ecx.images-amazon.com/images/I/41Kv1qGuXUL._SL160_.jpg"),
             Book(isbn13 = "978-1613823590", title = "Ulysses", pageCount = 564, editor = "Simon & Brown", author = "James Joyce", coverImageURL = "http://ecx.images-amazon.com/images/I/51XEH13NOnL._SL200_.jpg"),
-            Book(isbn13 = "978-0316769174", title = "The Catcher in the Rye", pageCount = 277, editor = "Back Bay Books", author = "J. D. Salinger", coverImageURL = "http://ecx.images-amazon.com/images/I/511BDFArolL._SL200_.jpg")
+            Book(isbn13 = "978-0316769174", title = "The Catcher in the Rye", pageCount = 277, editor = "Back Bay Books", author = "J. D. Salinger", coverImageURL = "http://ecx.images-amazon.com/images/I/511BDFArolL._SL200_.jpg"),
+            Book(isbn13 = "978-0061743528", title = "To Kill a Mockingbird", pageCount = 323, editor = "Harper", author = "Harper Lee", coverImageURL = "http://ecx.images-amazon.com/images/I/51KFyfyK7eL._SL200_.jpg")
         )
     }
 }
