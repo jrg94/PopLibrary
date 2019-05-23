@@ -48,8 +48,15 @@ class BookAdapter (private val books: List<Book>) : RecyclerView.Adapter<BookAda
 
     override fun getItemCount() = booksSearchList.size
 
+    /**
+     * Filters the adapter to only include items that match the filter.
+     */
     override fun getFilter(): Filter {
         return object: Filter() {
+
+            /**
+             * Performs the filtering operation based on a character sequence.
+             */
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charString = constraint.toString()
                 if (charString.isEmpty()) {
@@ -57,7 +64,7 @@ class BookAdapter (private val books: List<Book>) : RecyclerView.Adapter<BookAda
                 } else {
                     val filteredList = ArrayList<Book>()
                     for (book in books) {
-                        if (book.title!!.toLowerCase().contains(charString.toLowerCase())) {
+                        if (book.match(charString)) {
                             filteredList.add(book)
                         }
                     }
@@ -69,7 +76,11 @@ class BookAdapter (private val books: List<Book>) : RecyclerView.Adapter<BookAda
                 return filterResults
             }
 
+            /**
+             * Updates the bookSearchList to include only items that were filtered during search.
+             */
             override fun publishResults(constraint: CharSequence, results: FilterResults) {
+                @Suppress("UNCHECKED_CAST")
                 booksSearchList = results.values as ArrayList<Book>
                 notifyDataSetChanged()
             }

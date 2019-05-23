@@ -12,7 +12,15 @@ class Book(
     val pageCount: Int? = null,
     val dateOfPublication: Date? = null
 ) {
+
+    /**
+     * Converts the book to a string.
+     */
     override fun toString(): String {
         return title!!
+    }
+
+    fun match(str: CharSequence): Boolean {
+        return (title?.contains(str, true)) == true
     }
 }
