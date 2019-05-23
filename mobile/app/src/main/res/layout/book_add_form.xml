@@ -17,5 +17,14 @@
             android:text="@string/book_add_text"
             android:textSize="24sp"
             android:textStyle="bold" />
+
+        <EditText
+            android:id="@+id/book_title_input_form"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:ems="10"
+            android:hint="@string/book_title_form_prompt"
+            android:inputType="text"
+            android:text="Enter:" />
     </LinearLayout>
 </ScrollView>
