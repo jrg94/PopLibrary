@@ -17,29 +17,39 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewAdapter: BookAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var searchView: SearchView
+    private lateinit var books: MutableList<Book>
 
+    /**
+     * When the activity is created, do this stuff!
+     */
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        books = generateBooks()
+        loadRecyclerView()
+        loadSearchFunction()
+        loadFilterFunction()
+    }
 
-        val books = generateBooks()
+    /**
+     * Loads the filter functionality using a spinner.
+     */
+    private fun loadFilterFunction() {
+        val spinner: Spinner = findViewById(R.id.sort_drop_down)
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) { }
 
-        viewManager = LinearLayoutManager(this)
-        viewAdapter = BookAdapter(books)
-
-        recyclerView = findViewById<RecyclerView>(R.id.book_recycler_view).apply {
-            // use this setting to improve performance if you know that changes
-            // in content do not change the layout size of the RecyclerView
-            setHasFixedSize(true)
-
-            // use a linear layout manager
-            layoutManager = viewManager
-
-            // specify an viewAdapter (see also next example)
-            adapter = viewAdapter
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                viewAdapter.sort(parent?.getItemAtPosition(position).toString())
+            }
 
         }
+    }
 
+    /**
+     * Loads the search functionality using a searchView.
+     */
+    private fun loadSearchFunction() {
         val searchManager = getSystemService(Context.SEARCH_SERVICE) as SearchManager
         searchView = findViewById(R.id.book_search)
         searchView.setSearchableInfo(searchManager.getSearchableInfo(componentName))
@@ -59,16 +69,25 @@ class MainActivity : AppCompatActivity() {
                 return false
             }
         })
+    }
 
-        val spinner: Spinner = findViewById(R.id.sort_drop_down)
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onNothingSelected(parent: AdapterView<*>?) {
+    /**
+     * Loads the list of books.
+     */
+    private fun loadRecyclerView() {
+        viewManager = LinearLayoutManager(this)
+        viewAdapter = BookAdapter(books)
 
-            }
+        recyclerView = findViewById<RecyclerView>(R.id.book_recycler_view).apply {
+            // use this setting to improve performance if you know that changes
+            // in content do not change the layout size of the RecyclerView
+            setHasFixedSize(true)
 
-            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
-                viewAdapter.sort(parent?.getItemAtPosition(position).toString())
-            }
+            // use a linear layout manager
+            layoutManager = viewManager
+
+            // specify an viewAdapter (see also next example)
+            adapter = viewAdapter
 
         }
     }
