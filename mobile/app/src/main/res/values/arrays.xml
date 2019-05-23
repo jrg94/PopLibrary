@@ -5,6 +5,6 @@
         <item>Publication Date</item>
         <item>Author</item>
         <item>Language</item>
-        <item>Page Count</item>
+        <item>Page Count (Lowest First)</item>
     </string-array>
 </resources>

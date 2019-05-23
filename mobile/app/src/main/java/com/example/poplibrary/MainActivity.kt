@@ -6,7 +6,10 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
 import android.support.v7.widget.LinearLayoutManager
+import android.view.View
+import android.widget.AdapterView
 import android.widget.SearchView
+import android.widget.Spinner
 
 class MainActivity : AppCompatActivity() {
 
@@ -56,6 +59,18 @@ class MainActivity : AppCompatActivity() {
                 return false
             }
         })
+
+        val spinner: Spinner = findViewById(R.id.sort_drop_down)
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onNothingSelected(parent: AdapterView<*>?) {
+
+            }
+
+            override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                viewAdapter.sort(parent?.getItemAtPosition(position).toString())
+            }
+
+        }
     }
 
     /**

@@ -9,6 +9,7 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.book_list_item.view.*
 import android.widget.Filter
 import android.widget.Filterable
+import kotlin.collections.ArrayList
 
 
 class BookAdapter (private val books: List<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterable {
@@ -75,5 +76,14 @@ class BookAdapter (private val books: List<Book>) : RecyclerView.Adapter<BookAda
                 notifyDataSetChanged()
             }
         }
+    }
+
+    fun sort(key: String) {
+        when (key) {
+            "Title" -> booksSearchList = booksSearchList.sortedBy { it.title }
+            "Page Count (Lowest First)" -> booksSearchList = booksSearchList.sortedBy { it.pageCount }
+            "Author" -> booksSearchList = booksSearchList.sortedBy { it.author }
+        }
+        notifyDataSetChanged()
     }
 }
