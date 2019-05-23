@@ -1,5 +1,7 @@
 package com.example.poplibrary
 
+import android.graphics.Bitmap
+import java.lang.AssertionError
 import java.util.*
 
 class Book(
@@ -12,6 +14,15 @@ class Book(
     val pageCount: Int? = null,
     val dateOfPublication: Date? = null
 ) {
+
+    private var _coverImage: Bitmap? = null
+    public val coverImage: Bitmap
+        get() {
+            if (_coverImage == null) {
+                _coverImage = ImageLoader().execute(this.coverImageURL).get()
+            }
+            return _coverImage ?: throw AssertionError("Set to null by another thread")
+        }
 
     /**
      * Converts the book to a string.

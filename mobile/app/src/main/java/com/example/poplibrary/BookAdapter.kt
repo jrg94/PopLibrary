@@ -40,10 +40,7 @@ class BookAdapter (private val books: List<Book>) : RecyclerView.Adapter<BookAda
         holder.isbnTextView.text = booksSearchList[position].isbn13
         holder.titleTextView.text = booksSearchList[position].title
         holder.authorTextView.text = booksSearchList[position].author
-        val image: Bitmap? = ImageLoader().execute(booksSearchList[position].coverImageURL).get()
-        if (image != null) {
-            holder.coverImage.setImageBitmap(image)
-        }
+        holder.coverImage.setImageBitmap(booksSearchList[position].coverImage)
     }
 
     override fun getItemCount() = booksSearchList.size
