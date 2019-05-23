@@ -5,6 +5,7 @@ import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.SearchView
@@ -14,6 +15,7 @@ import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.floatingactionbutton.FloatingActionButton
 
 class MainActivity : AppCompatActivity() {
 
@@ -40,6 +42,12 @@ class MainActivity : AppCompatActivity() {
         loadRecyclerView()
         loadSearchFunction()
         loadFilterFunction()
+
+        val fab = findViewById<FloatingActionButton>(R.id.add_book_button)
+        fab.setOnClickListener {
+            val intent = Intent(this@MainActivity, BookActivity::class.java)
+            startActivityForResult(intent, newBookActivityRequestCode)
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
@@ -47,8 +55,11 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == newBookActivityRequestCode && resultCode == Activity.RESULT_OK) {
             data?.let {
-                // DO SOMETHING
+                val book = Book(title = it.getStringExtra(BookActivity.EXTRA_REPLY))
+                bookViewModel.insert(book)
             }
+        } else {
+            Log.d("BOOK", "Failed to create new book")
         }
     }
 

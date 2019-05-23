@@ -9,6 +9,7 @@ import kotlinx.android.synthetic.main.book_list_item.view.*
 import android.widget.Filter
 import android.widget.Filterable
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import kotlin.collections.ArrayList
 
 
@@ -35,7 +36,10 @@ class BookAdapter () : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filte
         holder.isbnTextView.text = booksSearchList[position].isbn13
         holder.titleTextView.text = booksSearchList[position].title
         holder.authorTextView.text = booksSearchList[position].author
-        holder.coverImage.setImageBitmap(booksSearchList[position].coverImage)
+        Glide.with(holder.itemView)
+            .load(booksSearchList[position].coverImageURL)
+            .placeholder(R.mipmap.the_renegade_coder_icon)
+            .into(holder.coverImage)
     }
 
     override fun getItemCount() = booksSearchList.size

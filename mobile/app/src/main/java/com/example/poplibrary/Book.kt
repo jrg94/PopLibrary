@@ -1,6 +1,8 @@
 package com.example.poplibrary
 
+import android.content.Context
 import android.graphics.Bitmap
+import android.graphics.BitmapFactory
 import androidx.room.Entity
 import androidx.room.Ignore
 import androidx.room.PrimaryKey
@@ -26,16 +28,6 @@ data class Book(
 ) {
     @PrimaryKey(autoGenerate = true)
     var bookId: Int = 0
-
-    @Ignore
-    private var _coverImage: Bitmap? = null
-    val coverImage: Bitmap
-        get() {
-            if (_coverImage == null) {
-                _coverImage = ImageLoader().execute(this.coverImageURL).get()
-            }
-            return _coverImage ?: throw AssertionError("Set to null by another thread")
-        }
 
     /**
      * Converts the book to a string.
