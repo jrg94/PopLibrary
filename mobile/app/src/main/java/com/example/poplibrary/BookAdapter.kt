@@ -1,26 +1,22 @@
 package com.example.poplibrary
 
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.view.LayoutInflater
 import android.widget.ImageView
 import android.widget.TextView
 import kotlinx.android.synthetic.main.book_list_item.view.*
-import android.graphics.drawable.Drawable
-import android.util.Log
 import android.widget.Filter
 import android.widget.Filterable
-import java.io.InputStream
-import java.lang.Exception
-import java.net.URL
+import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
+import kotlin.collections.ArrayList
 
 
-class BookAdapter (private val books: List<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterable {
+class BookAdapter () : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterable {
 
-    private var booksSearchList: List<Book> = books
+    private var books = emptyList<Book>()
+    private var booksSearchList: MutableList<Book> = books.toMutableList()
 
     class BookViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val isbnTextView: TextView = view.isbn_text_view
@@ -29,7 +25,7 @@ class BookAdapter (private val books: List<Book>) : RecyclerView.Adapter<BookAda
         val coverImage: ImageView = view.cover_image_view
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookAdapter.BookViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
         val textView = LayoutInflater.from(parent.context)
             .inflate(R.layout.book_list_item, parent, false) as View
 
@@ -40,39 +36,67 @@ class BookAdapter (private val books: List<Book>) : RecyclerView.Adapter<BookAda
         holder.isbnTextView.text = booksSearchList[position].isbn13
         holder.titleTextView.text = booksSearchList[position].title
         holder.authorTextView.text = booksSearchList[position].author
-        val image: Bitmap? = ImageLoader().execute(booksSearchList[position].coverImageURL).get()
-        if (image != null) {
-            holder.coverImage.setImageBitmap(image)
-        }
+        Glide.with(holder.itemView)
+            .load(booksSearchList[position].coverImageURL)
+            .fallback(R.drawable.generic_book_cover)
+            .into(holder.coverImage)
     }
 
     override fun getItemCount() = booksSearchList.size
 
+    /**
+     * Filters the adapter to only include items that match the filter.
+     */
     override fun getFilter(): Filter {
         return object: Filter() {
+
+            /**
+             * Performs the filtering operation based on a character sequence.
+             */
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charString = constraint.toString()
                 if (charString.isEmpty()) {
-                    booksSearchList = books
+                    booksSearchList = books.toMutableList()
                 } else {
                     val filteredList = ArrayList<Book>()
                     for (book in books) {
-                        if (book.title!!.toLowerCase().contains(charString.toLowerCase())) {
+                        if (book.match(charString)) {
                             filteredList.add(book)
                         }
                     }
                     booksSearchList = filteredList
                 }
 
-                val filterResults = Filter.FilterResults()
+                val filterResults = FilterResults()
                 filterResults.values = booksSearchList
                 return filterResults
             }
 
+            /**
+             * Updates the bookSearchList to include only items that were filtered during search.
+             */
             override fun publishResults(constraint: CharSequence, results: FilterResults) {
+                @Suppress("UNCHECKED_CAST")
                 booksSearchList = results.values as ArrayList<Book>
                 notifyDataSetChanged()
             }
         }
+    }
+
+    fun sort(key: String) {
+        when (key) {
+            "Title" -> booksSearchList.sortBy { it.title }
+            "Page Count (Lowest First)" -> booksSearchList.sortBy { it.pageCount }
+            "Author" -> booksSearchList.sortBy { it.author }
+            "Publication Date" -> booksSearchList.sortedBy { it.dateOfPublication }
+            "Language" -> booksSearchList.sortBy { it.language }
+        }
+        notifyDataSetChanged()
+    }
+
+    fun setBooks(books: List<Book>) {
+        this.books = books.toMutableList()
+        this.booksSearchList = books.toMutableList()
+        notifyDataSetChanged()
     }
 }
