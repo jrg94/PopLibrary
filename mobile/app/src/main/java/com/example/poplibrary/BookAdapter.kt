@@ -1,6 +1,5 @@
 package com.example.poplibrary
 
-import android.support.v7.widget.RecyclerView
 import android.view.View
 import android.view.ViewGroup
 import android.view.LayoutInflater
@@ -9,6 +8,7 @@ import android.widget.TextView
 import kotlinx.android.synthetic.main.book_list_item.view.*
 import android.widget.Filter
 import android.widget.Filterable
+import androidx.recyclerview.widget.RecyclerView
 import kotlin.collections.ArrayList
 
 
