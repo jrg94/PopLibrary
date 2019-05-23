@@ -2,6 +2,7 @@ package com.example.poplibrary
 
 import android.app.SearchManager
 import android.content.Context
+import android.content.Intent
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.support.v7.widget.RecyclerView
@@ -90,6 +91,14 @@ class MainActivity : AppCompatActivity() {
             adapter = viewAdapter
 
         }
+    }
+
+    /**
+     * Switches context to book add context.
+     */
+    fun loadBookAddDialog(view: View) {
+        val intent: Intent = Intent(this, BookActivity::class.java)
+        this.startActivity(intent)
     }
 
     /**
