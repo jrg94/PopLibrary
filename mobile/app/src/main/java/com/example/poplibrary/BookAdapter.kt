@@ -23,7 +23,7 @@ class BookAdapter (private var books: MutableList<Book>) : RecyclerView.Adapter<
         val coverImage: ImageView = view.cover_image_view
     }
 
-    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookAdapter.BookViewHolder {
+    override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
         val textView = LayoutInflater.from(parent.context)
             .inflate(R.layout.book_list_item, parent, false) as View
 
@@ -62,7 +62,7 @@ class BookAdapter (private var books: MutableList<Book>) : RecyclerView.Adapter<
                     booksSearchList = filteredList
                 }
 
-                val filterResults = Filter.FilterResults()
+                val filterResults = FilterResults()
                 filterResults.values = booksSearchList
                 return filterResults
             }
