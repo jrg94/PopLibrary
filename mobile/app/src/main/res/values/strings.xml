@@ -7,4 +7,5 @@
     <string name="unavailable_book_info">Unavailable</string>
     <string name="author_label">Author:</string>
     <string name="sort_prompt">Sort:</string>
+    <string name="search_query_hint">Search by title, author, or editor</string>
 </resources>
