@@ -15,5 +15,5 @@ interface BookDAO {
     suspend fun insert(book: Book)
 
     @Query("DELETE FROM book_table")
-    fun deleteAll()
+    suspend fun deleteAll()
 }

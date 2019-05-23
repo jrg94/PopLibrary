@@ -12,9 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlin.collections.ArrayList
 
 
-class BookAdapter (private var books: MutableList<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterable {
+class BookAdapter () : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterable {
 
-    private var booksSearchList: MutableList<Book> = books
+    private var books = emptyList<Book>()
+    private var booksSearchList: MutableList<Book> = books.toMutableList()
 
     class BookViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val isbnTextView: TextView = view.isbn_text_view
@@ -51,7 +52,7 @@ class BookAdapter (private var books: MutableList<Book>) : RecyclerView.Adapter<
             override fun performFiltering(constraint: CharSequence?): FilterResults {
                 val charString = constraint.toString()
                 if (charString.isEmpty()) {
-                    booksSearchList = books
+                    booksSearchList = books.toMutableList()
                 } else {
                     val filteredList = ArrayList<Book>()
                     for (book in books) {
@@ -91,13 +92,7 @@ class BookAdapter (private var books: MutableList<Book>) : RecyclerView.Adapter<
 
     fun setBooks(books: List<Book>) {
         this.books = books.toMutableList()
+        this.booksSearchList = books.toMutableList()
         notifyDataSetChanged()
-    }
-
-    /**
-     * Adds a book to our collection of books.
-     */
-    fun add(book: Book) {
-        books.add(book)
     }
 }

@@ -21,7 +21,6 @@ class MainActivity : AppCompatActivity() {
     private lateinit var viewAdapter: BookAdapter
     private lateinit var viewManager: RecyclerView.LayoutManager
     private lateinit var searchView: SearchView
-    private lateinit var books: MutableList<Book>
 
     private lateinit var bookViewModel: BookViewModel
     private val newBookActivityRequestCode = 1
@@ -98,7 +97,7 @@ class MainActivity : AppCompatActivity() {
      */
     private fun loadRecyclerView() {
         viewManager = LinearLayoutManager(this)
-        viewAdapter = BookAdapter(books)
+        viewAdapter = BookAdapter()
 
         recyclerView = findViewById<RecyclerView>(R.id.book_recycler_view).apply {
             // use this setting to improve performance if you know that changes
