@@ -12,7 +12,7 @@ import androidx.recyclerview.widget.RecyclerView
 import kotlin.collections.ArrayList
 
 
-class BookAdapter (private val books: MutableList<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterable {
+class BookAdapter (private var books: MutableList<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterable {
 
     private var booksSearchList: MutableList<Book> = books
 
@@ -86,6 +86,11 @@ class BookAdapter (private val books: MutableList<Book>) : RecyclerView.Adapter<
             "Publication Date" -> booksSearchList.sortedBy { it.dateOfPublication }
             "Language" -> booksSearchList.sortBy { it.language }
         }
+        notifyDataSetChanged()
+    }
+
+    fun setBooks(books: List<Book>) {
+        this.books = books.toMutableList()
         notifyDataSetChanged()
     }
 

@@ -1,11 +1,12 @@
 package com.example.poplibrary
 
 import android.graphics.Bitmap
-import androidx.room.ColumnInfo
 import androidx.room.Entity
+import androidx.room.Ignore
 import androidx.room.PrimaryKey
 import java.lang.AssertionError
 import java.util.*
+
 
 /**
  * Models a book.
@@ -14,7 +15,7 @@ import java.util.*
  */
 @Entity(tableName = "book_table")
 data class Book(
-    @PrimaryKey val isbn13: String? = null,
+    val isbn13: String? = null,
     val title: String? = null,
     val author: String? = null,
     val editor: String? = null,
@@ -23,7 +24,10 @@ data class Book(
     val pageCount: Int? = null,
     val dateOfPublication: Date? = null
 ) {
+    @PrimaryKey(autoGenerate = true)
+    var bookId: Int = 0
 
+    @Ignore
     private var _coverImage: Bitmap? = null
     val coverImage: Bitmap
         get() {

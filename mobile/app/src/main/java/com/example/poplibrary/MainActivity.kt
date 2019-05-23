@@ -1,5 +1,6 @@
 package com.example.poplibrary
 
+import android.app.Activity
 import android.app.SearchManager
 import android.content.Context
 import android.content.Intent
@@ -9,6 +10,7 @@ import android.widget.AdapterView
 import android.widget.SearchView
 import android.widget.Spinner
 import androidx.appcompat.app.AppCompatActivity
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -22,6 +24,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var books: MutableList<Book>
 
     private lateinit var bookViewModel: BookViewModel
+    private val newBookActivityRequestCode = 1
 
     /**
      * When the activity is created, do this stuff!
@@ -31,10 +34,23 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
         bookViewModel = ViewModelProviders.of(this).get(BookViewModel::class.java)
+        bookViewModel.allBooks.observe(this, Observer { books ->
+            books?.let { viewAdapter.setBooks(it) }
+        })
 
         loadRecyclerView()
         loadSearchFunction()
         loadFilterFunction()
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == newBookActivityRequestCode && resultCode == Activity.RESULT_OK) {
+            data?.let {
+                // DO SOMETHING
+            }
+        }
     }
 
     /**
