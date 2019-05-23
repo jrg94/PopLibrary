@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
         val books = generateBooks()
 
         viewManager = LinearLayoutManager(this)
-        viewAdapter = BookAdapter(books.toList())
+        viewAdapter = BookAdapter(books)
 
         recyclerView = findViewById<RecyclerView>(R.id.book_recycler_view).apply {
             // use this setting to improve performance if you know that changes
@@ -76,8 +76,8 @@ class MainActivity : AppCompatActivity() {
     /**
      * Generates an array of books.
      */
-    private fun generateBooks(): Array<Book> {
-        return arrayOf(
+    private fun generateBooks(): MutableList<Book> {
+        return mutableListOf(
             Book(isbn13 = "978-0743273565", title = "The Great Gatsby", pageCount = 180, editor = "Scribner", author = "F. Scott Fitzgerald", coverImageURL = "http://ecx.images-amazon.com/images/I/41eiFf1x23L._SL160_.jpg"),
             Book(isbn13 = "978-0143039433", title = "The Grapes of Wrath", pageCount = 464, editor = "Penguin Classics", author = "John Steinbeck", coverImageURL = "http://ecx.images-amazon.com/images/I/41adOkkXUzL._SL160_.jpg"),
             Book(isbn13 = "978-0452262935", title = "Nineteen Eighty-Four", pageCount = 304, editor = "Berkley", author = "George Orwell", coverImageURL = "http://ecx.images-amazon.com/images/I/41Kv1qGuXUL._SL160_.jpg"),

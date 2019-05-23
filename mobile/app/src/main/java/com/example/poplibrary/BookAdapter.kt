@@ -12,9 +12,9 @@ import android.widget.Filterable
 import kotlin.collections.ArrayList
 
 
-class BookAdapter (private val books: List<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterable {
+class BookAdapter (private val books: MutableList<Book>) : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterable {
 
-    private var booksSearchList: List<Book> = books
+    private var booksSearchList: MutableList<Book> = books
 
     class BookViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
         val isbnTextView: TextView = view.isbn_text_view
@@ -80,10 +80,19 @@ class BookAdapter (private val books: List<Book>) : RecyclerView.Adapter<BookAda
 
     fun sort(key: String) {
         when (key) {
-            "Title" -> booksSearchList = booksSearchList.sortedBy { it.title }
-            "Page Count (Lowest First)" -> booksSearchList = booksSearchList.sortedBy { it.pageCount }
-            "Author" -> booksSearchList = booksSearchList.sortedBy { it.author }
+            "Title" -> booksSearchList.sortBy { it.title }
+            "Page Count (Lowest First)" -> booksSearchList.sortBy { it.pageCount }
+            "Author" -> booksSearchList.sortBy { it.author }
+            "Publication Date" -> booksSearchList.sortedBy { it.dateOfPublication }
+            "Language" -> booksSearchList.sortBy { it.language }
         }
         notifyDataSetChanged()
+    }
+
+    /**
+     * Adds a book to our collection of books.
+     */
+    fun add(book: Book) {
+        books.add(book)
     }
 }
