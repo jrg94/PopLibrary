@@ -38,7 +38,7 @@ class BookAdapter () : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filte
         holder.authorTextView.text = booksSearchList[position].author
         Glide.with(holder.itemView)
             .load(booksSearchList[position].coverImageURL)
-            .placeholder(R.mipmap.the_renegade_coder_icon)
+            .fallback(R.drawable.generic_book_cover)
             .into(holder.coverImage)
     }
 
