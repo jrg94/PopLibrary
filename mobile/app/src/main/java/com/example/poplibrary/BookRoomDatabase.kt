@@ -11,7 +11,7 @@ import kotlinx.coroutines.launch
 
 @Database(entities = [Book::class], version = 1)
 @TypeConverters(Converters::class)
-public abstract class BookRoomDatabase : RoomDatabase() {
+abstract class BookRoomDatabase : RoomDatabase() {
     abstract fun bookDAO(): BookDAO
 
     companion object {
