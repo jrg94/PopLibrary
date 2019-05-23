@@ -4,6 +4,11 @@ import android.graphics.Bitmap
 import java.lang.AssertionError
 import java.util.*
 
+/**
+ * Models a book.
+ *
+ * @author Jeremy Grifski
+ */
 class Book(
     val isbn13: String? = null,
     val title: String? = null,
@@ -16,7 +21,7 @@ class Book(
 ) {
 
     private var _coverImage: Bitmap? = null
-    public val coverImage: Bitmap
+    val coverImage: Bitmap
         get() {
             if (_coverImage == null) {
                 _coverImage = ImageLoader().execute(this.coverImageURL).get()
@@ -26,6 +31,8 @@ class Book(
 
     /**
      * Converts the book to a string.
+     *
+     * @return book as a string
      */
     override fun toString(): String {
         return title!!
