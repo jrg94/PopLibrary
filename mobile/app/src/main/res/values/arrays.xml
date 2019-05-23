@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="sort_list">
+        <item>Title</item>
+        <item>Publication Date</item>
+        <item>Author</item>
+        <item>Language</item>
+        <item>Page Count</item>
+    </string-array>
+</resources>
