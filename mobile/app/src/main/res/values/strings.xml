@@ -10,4 +10,5 @@
     <string name="search_query_hint">Search by title, author, or editor</string>
     <string name="book_add_text">Add/Update Book</string>
     <string name="book_title_form_prompt">Enter a book title</string>
+    <string name="submit_book_button">Submit</string>
 </resources>

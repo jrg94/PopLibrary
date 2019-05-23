@@ -15,4 +15,8 @@ class BookActivity: AppCompatActivity() {
         val intent: Intent = Intent(this, MainActivity::class.java)
         this.startActivity(intent)
     }
+
+    fun createBook(view: View) {
+        loadMainActivity(view)
+    }
 }

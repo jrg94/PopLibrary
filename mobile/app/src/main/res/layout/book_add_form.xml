@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:fillViewport="false"
     android:orientation="vertical">
 
     <LinearLayout
@@ -52,13 +53,25 @@
                 app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
         </android.support.constraint.ConstraintLayout>
 
+        <View
+            android:id="@+id/divider"
+            android:layout_width="match_parent"
+            android:layout_height="3dp"
+            android:background="?android:attr/listDivider" />
+
         <EditText
             android:id="@+id/book_title_input_form"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/book_title_form_prompt"
-            android:inputType="text"
-            android:text="Enter:" />
+            android:inputType="text" />
+
+        <Button
+            android:id="@+id/button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:onClick="createBook"
+            android:text="@string/submit_book_button" />
     </LinearLayout>
 </ScrollView>
