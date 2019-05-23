@@ -1,6 +1,6 @@
 package com.example.poplibrary
 
-import android.arch.lifecycle.LiveData
+import androidx.lifecycle.LiveData
 import androidx.annotation.WorkerThread
 
 class BookRepository(private val bookDAO: BookDAO) {
