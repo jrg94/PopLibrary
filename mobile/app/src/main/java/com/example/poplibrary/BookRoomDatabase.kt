@@ -58,6 +58,9 @@ abstract class BookRoomDatabase : RoomDatabase() {
             )
         }
 
+        /**
+         * A handy function for populating the database with books.
+         */
         suspend fun populateDatabase(bookDAO: BookDAO) {
             bookDAO.deleteAll()
 
