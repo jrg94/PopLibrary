@@ -98,7 +98,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/isbn_label" />
+                        android:text="@string/lexile_label" />
 
                     <TextView
                         android:id="@+id/lexile_text_view"

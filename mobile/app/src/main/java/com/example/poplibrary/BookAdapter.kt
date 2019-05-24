@@ -23,6 +23,7 @@ class BookAdapter () : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filte
         val titleTextView: TextView = view.title_text_view
         val authorTextView: TextView = view.author_text_view
         val coverImage: ImageView = view.cover_image_view
+        val lexileLevelTextView: TextView = view.lexile_text_view
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): BookViewHolder {
@@ -36,6 +37,7 @@ class BookAdapter () : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filte
         holder.isbnTextView.text = booksSearchList[position].isbn13
         holder.titleTextView.text = booksSearchList[position].title
         holder.authorTextView.text = booksSearchList[position].author
+        holder.lexileLevelTextView.text = booksSearchList[position].lexileLevel?.toString() 
         Glide.with(holder.itemView)
             .load(booksSearchList[position].coverImageURL)
             .fallback(R.drawable.generic_book_cover)
