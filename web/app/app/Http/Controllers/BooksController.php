@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Book;
 use Auth;
+use Amazon;
 
 class BooksController extends Controller
 {
@@ -49,5 +50,15 @@ class BooksController extends Controller
         $book->users()->attach(Auth::user()->id);
 
         return redirect('/');
+    }
+
+    public function search()
+    {
+        $amazon = new Amazon(getenv('AMAZON_ACCESS_KEY'), 'US', getenv('AMAZON_SECRET_KEY'));
+        $results = $amazon->itemSearch(array('SearchIndex' => 'Books',
+                                     'Keywords' => request('search'),
+                                    'AssociateTag' => getenv('AMAZON_ASSOCIATE_TAG')));
+
+        return view('books.results', compact('results'));
     }
 }

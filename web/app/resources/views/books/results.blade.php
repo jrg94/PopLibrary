@@ -2,8 +2,8 @@
 
 @section ('library')
     <div>
-        @foreach ($books as $book)
-            @include ('books.book')
+        @foreach ($results as $result)
+            @include('books.item')
         @endforeach
     </div>
 @endsection

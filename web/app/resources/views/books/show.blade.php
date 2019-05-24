@@ -1,5 +1,5 @@
-@extends ('layouts.master')
+@extends ('layouts.poplibrary')
 
-@section ('content')
+@section ('library')
   @include ('books.book')
 @endsection

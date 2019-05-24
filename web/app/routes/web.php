@@ -13,10 +13,9 @@
 
 Route::get('/books', 'BooksController@index');
 Route::get('/books/{book}', 'BooksController@show')->where('book', '[0-9]+');
-Route::get('/books/create', 'BooksController@create');
 Route::post('/books', 'BooksController@store');
-Route::get('/', 'HomeController@index');
+Route::post('/search', 'BooksController@search');
 
 Auth::routes();
 
-Route::get('/home', 'HomeController@index');
+Route::get('/', 'HomeController@index');
