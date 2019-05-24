@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">PopLibrary</string>
+    <string name="edit_message">Enter a message</string>
+    <string name="button_send">Send</string>
+    <string name="isbn_label">ISBN:</string>
+    <string name="title_label">Title:</string>
+    <string name="unavailable_book_info">Unavailable</string>
+    <string name="author_label">Author:</string>
+    <string name="sort_prompt">Sort:</string>
+    <string name="search_query_hint">Search by title, author, or editor</string>
+    <string name="book_add_text">Add/Update Book</string>
+    <string name="book_title_form_prompt">Enter a book title</string>
+    <string name="submit_book_button">Submit</string>
+</resources>
