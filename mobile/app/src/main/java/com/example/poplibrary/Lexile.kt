@@ -8,6 +8,19 @@ package com.example.poplibrary
 class Lexile (val level: Int, val type: LexileType) : Comparable<Lexile> {
 
     /**
+     * A lexile classification enum.
+     */
+    enum class LexileType(val text: String) {
+        AD("Adult-directed"),
+        NC("Non-conforming"),
+        HL("High-low"),
+        IG("Illustrated guide"),
+        GN("Graphic novel"),
+        BR("Beginning reader"),
+        NP("Non-prose")
+    }
+
+    /**
      * Converts the lexile level to an integer for comparison purposes.
      */
     fun toInteger() = when {
@@ -24,15 +37,3 @@ class Lexile (val level: Int, val type: LexileType) : Comparable<Lexile> {
     }
 }
 
-/**
- * A lexile classification enum.
- */
-enum class LexileType(val text: String) {
-    AD("Adult-directed"),
-    NC("Non-conforming"),
-    HL("High-low"),
-    IG("Illustrated guide"),
-    GN("Graphic novel"),
-    BR("Beginning reader"),
-    NP("Non-prose")
-}

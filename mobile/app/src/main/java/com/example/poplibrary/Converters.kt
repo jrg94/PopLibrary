@@ -13,4 +13,19 @@ class Converters {
     fun fromDate(date: Date?) : Long? {
         return date?.time
     }
+
+    @TypeConverter
+    fun fromLexileLevel(lexileLevel: Lexile?): String? {
+        return lexileLevel?.toString()
+    }
+
+    @TypeConverter
+    fun fromLexileInteger(lexileText: String?): Lexile? {
+        return lexileText?.let {
+            Lexile(
+                it.substring(2, it.length - 1).toInt(),
+                Lexile.LexileType.valueOf(it.substring(0, 2))
+            )
+        }
+    }
 }

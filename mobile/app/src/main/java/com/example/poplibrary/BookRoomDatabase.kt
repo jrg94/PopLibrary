@@ -9,7 +9,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [Book::class], version = 1)
+@Database(entities = [Book::class], version = 2)
 @TypeConverters(Converters::class)
 abstract class BookRoomDatabase : RoomDatabase() {
     abstract fun bookDAO(): BookDAO
@@ -28,7 +28,10 @@ abstract class BookRoomDatabase : RoomDatabase() {
                     context.applicationContext,
                     BookRoomDatabase::class.java,
                     "book_database"
-                ).addCallback(BookDatabaseCallback(scope)).build()
+                )
+                    .fallbackToDestructiveMigration()
+                    .addCallback(BookDatabaseCallback(scope))
+                    .build()
                 INSTANCE = instance
                 return instance
             }

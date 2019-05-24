@@ -1,12 +1,7 @@
 package com.example.poplibrary
 
-import android.content.Context
-import android.graphics.Bitmap
-import android.graphics.BitmapFactory
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
-import java.lang.AssertionError
 import java.util.*
 
 
@@ -24,7 +19,8 @@ data class Book(
     val language: String? = null,
     val coverImageURL: String? = null,
     val pageCount: Int? = null,
-    val dateOfPublication: Date? = null
+    val dateOfPublication: Date? = null,
+    val lexileLevel: Lexile? = null
 ) {
     @PrimaryKey(autoGenerate = true)
     var bookId: Int = 0
