@@ -17,7 +17,8 @@ class Lexile (val level: Int, val type: LexileType) : Comparable<Lexile> {
         IG("Illustrated guide"),
         GN("Graphic novel"),
         BR("Beginning reader"),
-        NP("Non-prose")
+        NP("Non-prose"),
+        NA("Not Applicable")
     }
 
     /**
@@ -29,7 +30,10 @@ class Lexile (val level: Int, val type: LexileType) : Comparable<Lexile> {
     }
 
     override fun toString(): String {
-        return type.name + level.toString() + "L"
+        return when (this.type) {
+            LexileType.NA -> level.toString() + "L"
+            else -> type.name + level.toString() + "L"
+        }
     }
 
     override fun compareTo(other: Lexile): Int {

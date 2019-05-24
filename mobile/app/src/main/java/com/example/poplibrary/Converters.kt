@@ -16,14 +16,16 @@ class Converters {
 
     @TypeConverter
     fun fromLexileLevel(lexileLevel: Lexile?): String? {
-        return lexileLevel?.toString()
+        return lexileLevel?.let {
+            it.type.name + it.level.toString()
+        }
     }
 
     @TypeConverter
     fun fromLexileText(lexileText: String?): Lexile? {
         return lexileText?.let {
             Lexile(
-                it.substring(2, it.length - 1).toInt(),
+                it.substring(2).toInt(),
                 Lexile.LexileType.valueOf(it.substring(0, 2))
             )
         }
