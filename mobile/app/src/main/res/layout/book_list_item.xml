@@ -85,6 +85,26 @@
                         android:layout_width="421dp"
                         android:layout_height="wrap_content"
                         android:hint="@string/unavailable_book_info" />
+
+                </TableRow>
+
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lexile_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/isbn_label" />
+
+                    <TextView
+                        android:id="@+id/lexile_text_view"
+                        android:layout_width="421dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/unavailable_book_info" />
                 </TableRow>
 
             </TableLayout>
