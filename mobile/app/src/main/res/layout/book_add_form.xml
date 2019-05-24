@@ -65,7 +65,8 @@
             android:layout_height="wrap_content"
             android:ems="10"
             android:hint="@string/book_title_form_prompt"
-            android:inputType="text" />
+            android:autofillHints="@string/book_title_form_prompt"
+            android:inputType="text|textAutoComplete|textCapWords" />
 
         <Button
             android:id="@+id/book_submit_button"

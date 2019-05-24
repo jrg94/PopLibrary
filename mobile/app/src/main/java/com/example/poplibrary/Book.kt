@@ -20,7 +20,8 @@ data class Book(
     val coverImageURL: String? = null,
     val pageCount: Int? = null,
     val dateOfPublication: Date? = null,
-    val lexileLevel: Lexile? = null
+    val lexileLevel: Lexile? = null,
+    val fountasAndPinell: FountasAndPinell? = null
 ) {
     @PrimaryKey(autoGenerate = true)
     var bookId: Int = 0

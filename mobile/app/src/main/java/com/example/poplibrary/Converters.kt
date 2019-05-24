@@ -20,12 +20,22 @@ class Converters {
     }
 
     @TypeConverter
-    fun fromLexileInteger(lexileText: String?): Lexile? {
+    fun fromLexileText(lexileText: String?): Lexile? {
         return lexileText?.let {
             Lexile(
                 it.substring(2, it.length - 1).toInt(),
                 Lexile.LexileType.valueOf(it.substring(0, 2))
             )
         }
+    }
+
+    @TypeConverter
+    fun fromFountasAndPinell(fountasAndPinell: FountasAndPinell?): String? {
+        return fountasAndPinell?.name
+    }
+
+    @TypeConverter
+    fun fromFountasAndPinellText(fountasAndPinellText: String?) : FountasAndPinell? {
+        return fountasAndPinellText?.let { FountasAndPinell.valueOf(it) }
     }
 }

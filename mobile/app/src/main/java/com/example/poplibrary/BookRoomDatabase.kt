@@ -9,7 +9,7 @@ import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
 
-@Database(entities = [Book::class], version = 2)
+@Database(entities = [Book::class], version = 3)
 @TypeConverters(Converters::class)
 abstract class BookRoomDatabase : RoomDatabase() {
     abstract fun bookDAO(): BookDAO
