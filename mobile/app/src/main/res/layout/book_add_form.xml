@@ -21,19 +21,12 @@
                 android:id="@+id/add_book_title"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="8dp"
-                android:layout_marginRight="8dp"
-                android:layout_marginBottom="8dp"
                 android:layout_weight="10"
                 android:gravity="center"
                 android:text="@string/book_add_text"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
-                app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
 
@@ -42,10 +35,6 @@
                 style="@style/Widget.AppCompat.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginStart="8dp"
-                android:layout_marginLeft="8dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginBottom="8dp"
                 android:layout_weight="0"
                 android:onClick="loadMainActivity"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -83,7 +72,7 @@
                     android:layout_height="match_parent"
                     android:ems="10"
                     android:hint="@string/book_author_form_hint"
-                    android:inputType="textPersonName" />
+                    android:inputType="textPersonName|textCapWords" />
 
             </TableRow>
 
@@ -103,10 +92,9 @@
                     android:id="@+id/book_title_input_form"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:autofillHints="@string/book_title_form_hint"
                     android:ems="10"
                     android:hint="@string/book_title_form_hint"
-                    android:inputType="text|textAutoComplete|textCapWords" />
+                    android:inputType="textAutoCorrect|text|textAutoComplete|textCapWords" />
 
             </TableRow>
 
@@ -128,19 +116,35 @@
                     android:layout_height="wrap_content"
                     android:ems="10"
                     android:hint="@string/book_isbn_form_hint"
-                    android:inputType="textPersonName" />
+                    android:inputType="number|text" />
             </TableRow>
 
             <TableRow
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent" >
+
+                <TextView
+                    android:id="@+id/book_cover_url_label"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:gravity="center_vertical"
+                    android:text="@string/book_cover_url_label"
+                    android:textSize="18sp" />
+
+                <EditText
+                    android:id="@+id/book_cover_url_input_form"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ems="10"
+                    android:hint="@string/book_cover_url_form_hint"
+                    android:inputType="textUri|text" />
+            </TableRow>
         </TableLayout>
 
         <Button
             android:id="@+id/book_submit_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="createBook"
             android:text="@string/submit_book_button" />
 
     </LinearLayout>

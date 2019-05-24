@@ -13,4 +13,6 @@
     <string name="submit_book_button">Submit</string>
     <string name="book_author_form_hint">F. Scott Fitzgerald</string>
     <string name="book_isbn_form_hint" >978-0743273565</string>
+    <string name="book_cover_url_label">Book Cover URL:</string>
+    <string name="book_cover_url_form_hint">http://ecx.images-amazon.com/images/I/41eiFf1x23L._SL160_.jpg</string>
 </resources>
