@@ -16,6 +16,10 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import java.io.BufferedReader
+import java.io.InputStream
+import java.io.InputStreamReader
+import java.util.regex.Pattern
 
 class MainActivity : AppCompatActivity() {
 
@@ -26,6 +30,39 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var bookViewModel: BookViewModel
     private val newBookActivityRequestCode = 1
+
+    fun csvToBooks(stream: InputStream) : List<Book>{
+        val books: MutableList<Book> = mutableListOf()
+        val reader = BufferedReader(InputStreamReader(stream))
+        val lines = reader.readLines()
+        val rows: MutableList<List<String>> = mutableListOf()
+        for (line: String in lines) {
+            rows.add(line.split(Pattern.compile(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)")))
+        }
+        rows.removeAt(0)
+        for (list: List<String> in rows) {
+            val lexileLevel = when (list[2].trim().length) {
+                0 -> null
+                else -> list[2].substring(0, list[2].trim().length - 1).toIntOrNull()
+            }
+            val fountasAndPinell = when (list[3].length) {
+                0 -> null
+                else -> FountasAndPinell.valueOf(list[3].trim())
+            }
+            books.add(
+                Book(
+                    title = list[0],
+                    author = list[1],
+                    lexileLevel = when (lexileLevel) {
+                        null -> null
+                        else -> Lexile(lexileLevel, Lexile.LexileType.NA)
+                    },
+                    fountasAndPinell = fountasAndPinell
+                )
+            )
+        }
+        return books
+    }
 
     /**
      * When the activity is created, do this stuff!
@@ -38,6 +75,10 @@ class MainActivity : AppCompatActivity() {
         bookViewModel.allBooks.observe(this, Observer { books ->
             books?.let { viewAdapter.setBooks(it) }
         })
+
+        val stream: InputStream = resources.openRawResource(R.raw.sample_data)
+        val books = csvToBooks(stream)
+        books.forEach { bookViewModel.insert(it) }
 
         loadRecyclerView()
         loadSearchFunction()

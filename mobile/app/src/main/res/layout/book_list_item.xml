@@ -3,35 +3,32 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
+    android:layout_height="200dp"
     android:orientation="vertical">
 
     <androidx.cardview.widget.CardView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="match_parent"
         android:layout_margin="10dp"
-        app:cardBackgroundColor="@color/cardview_light_background"
+        app:cardBackgroundColor="@android:color/background_light"
         app:cardCornerRadius="10dp"
         app:cardElevation="5dp">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="match_parent">
 
             <ImageView
                 android:id="@+id/cover_image_view"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                android:layout_weight="1"
                 app:srcCompat="@mipmap/the_renegade_coder_icon" />
 
-            <LinearLayout
-                android:layout_width="0dp"
+            <TableLayout
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="6"
-                android:orientation="vertical">
+                android:layout_gravity="center_vertical">
 
                 <TableRow
                     android:layout_width="match_parent"
@@ -39,16 +36,16 @@
 
                     <TextView
                         android:id="@+id/title_label"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
                         android:text="@string/title_label" />
 
                     <TextView
                         android:id="@+id/title_text_view"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:hint="@string/unavailable_book_info" />
                 </TableRow>
 
@@ -88,9 +85,29 @@
                         android:layout_width="421dp"
                         android:layout_height="wrap_content"
                         android:hint="@string/unavailable_book_info" />
+
                 </TableRow>
 
-            </LinearLayout>
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                    <TextView
+                        android:id="@+id/lexile_label"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/lexile_label" />
+
+                    <TextView
+                        android:id="@+id/lexile_text_view"
+                        android:layout_width="421dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/unavailable_book_info" />
+                </TableRow>
+
+            </TableLayout>
 
         </LinearLayout>
     </androidx.cardview.widget.CardView>

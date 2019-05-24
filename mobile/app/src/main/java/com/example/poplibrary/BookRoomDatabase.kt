@@ -1,6 +1,7 @@
 package com.example.poplibrary
 
 import android.content.Context
+import android.os.Environment
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
@@ -8,8 +9,10 @@ import androidx.room.TypeConverters
 import androidx.sqlite.db.SupportSQLiteDatabase
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.launch
+import java.io.File
+import java.io.InputStream
 
-@Database(entities = [Book::class], version = 1)
+@Database(entities = [Book::class], version = 3)
 @TypeConverters(Converters::class)
 abstract class BookRoomDatabase : RoomDatabase() {
     abstract fun bookDAO(): BookDAO
@@ -28,7 +31,10 @@ abstract class BookRoomDatabase : RoomDatabase() {
                     context.applicationContext,
                     BookRoomDatabase::class.java,
                     "book_database"
-                ).addCallback(BookDatabaseCallback(scope)).build()
+                )
+                    .fallbackToDestructiveMigration()
+                    .addCallback(BookDatabaseCallback(scope))
+                    .build()
                 INSTANCE = instance
                 return instance
             }
@@ -44,7 +50,7 @@ abstract class BookRoomDatabase : RoomDatabase() {
          */
         private fun generateBooks(): MutableList<Book> {
             return mutableListOf(
-                Book(isbn13 = "978-0743273565", title = "The Great Gatsby", pageCount = 180, editor = "Scribner", author = "F. Scott Fitzgerald", coverImageURL = "http://ecx.images-amazon.com/images/I/41eiFf1x23L._SL160_.jpg"),
+                Book(isbn13 = "978-0743273565", title = "The Great Gatsby", pageCount = 180, editor = "Scribner", author = "F. Scott Fitzgerald", coverImageURL = "http://ecx.images-amazon.com/images/I/41eiFf1x23L._SL160_.jpg", lexileLevel = Lexile(1070, Lexile.LexileType.NA)),
                 Book(isbn13 = "978-0143039433", title = "The Grapes of Wrath", pageCount = 464, editor = "Penguin Classics", author = "John Steinbeck", coverImageURL = "http://ecx.images-amazon.com/images/I/41adOkkXUzL._SL160_.jpg"),
                 Book(isbn13 = "978-0452262935", title = "Nineteen Eighty-Four", pageCount = 304, editor = "Berkley", author = "George Orwell", coverImageURL = "http://ecx.images-amazon.com/images/I/41Kv1qGuXUL._SL160_.jpg"),
                 Book(isbn13 = "978-1613823590", title = "Ulysses", pageCount = 564, editor = "Simon & Brown", author = "James Joyce", coverImageURL = "http://ecx.images-amazon.com/images/I/51XEH13NOnL._SL200_.jpg"),
@@ -55,6 +61,9 @@ abstract class BookRoomDatabase : RoomDatabase() {
             )
         }
 
+        /**
+         * A handy function for populating the database with books.
+         */
         suspend fun populateDatabase(bookDAO: BookDAO) {
             bookDAO.deleteAll()
 
