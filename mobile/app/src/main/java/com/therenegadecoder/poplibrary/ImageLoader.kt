@@ -1,11 +1,10 @@
-package com.example.poplibrary
+package com.therenegadecoder.poplibrary
 
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
 import android.os.AsyncTask
 import android.util.Log
 import java.io.InputStream
-import java.lang.Exception
 import java.net.URL
 
 class ImageLoader: AsyncTask<String, Void, Bitmap>() {

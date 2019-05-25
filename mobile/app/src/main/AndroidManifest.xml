@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-          package="com.example.poplibrary">
+          package="com.therenegadecoder.poplibrary">
     <uses-permission android:name="android.permission.INTERNET" />
 
     <application
@@ -10,14 +10,14 @@
             android:roundIcon="@mipmap/the_renegade_coder_icon_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name=".MainActivity">
+        <activity android:name="com.therenegadecoder.poplibrary.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".BookActivity" />
+        <activity android:name="com.therenegadecoder.poplibrary.BookActivity" />
     </application>
 
 

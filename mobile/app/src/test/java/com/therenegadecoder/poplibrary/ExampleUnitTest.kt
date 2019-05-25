@@ -1,4 +1,4 @@
-package com.example.poplibrary
+package com.therenegadecoder.poplibrary
 
 import org.junit.Test
 

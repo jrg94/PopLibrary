@@ -1,8 +1,8 @@
-package com.example.poplibrary
+package com.therenegadecoder.poplibrary
 
 import android.app.Application
-import androidx.lifecycle.LiveData
 import androidx.lifecycle.AndroidViewModel
+import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch

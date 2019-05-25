@@ -1,16 +1,15 @@
-package com.example.poplibrary
+package com.therenegadecoder.poplibrary
 
+import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.view.LayoutInflater
-import android.widget.ImageView
-import android.widget.TextView
-import kotlinx.android.synthetic.main.book_list_item.view.*
 import android.widget.Filter
 import android.widget.Filterable
+import android.widget.ImageView
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import kotlin.collections.ArrayList
+import kotlinx.android.synthetic.main.book_list_item.view.*
 
 
 class BookAdapter () : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterable {

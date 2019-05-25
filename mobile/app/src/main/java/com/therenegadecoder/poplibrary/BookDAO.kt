@@ -1,4 +1,4 @@
-package com.example.poplibrary
+package com.therenegadecoder.poplibrary
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao

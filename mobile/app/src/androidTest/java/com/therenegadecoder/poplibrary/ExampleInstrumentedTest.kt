@@ -1,4 +1,4 @@
-package com.example.poplibrary
+package com.therenegadecoder.poplibrary
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

@@ -1,4 +1,4 @@
-package com.example.poplibrary
+package com.therenegadecoder.poplibrary
 
 enum class FountasAndPinell(val recommendedGrade: String) {
     A("Kindergarten"),
