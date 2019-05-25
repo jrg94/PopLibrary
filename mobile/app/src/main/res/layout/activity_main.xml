@@ -5,7 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:focusable="auto"
-    tools:context=".MainActivity">
+    tools:context=".frontend.MainActivity">
 
     <LinearLayout
         android:id="@+id/tableRow"
@@ -30,18 +30,17 @@
             android:layout_marginStart="8dp"
             android:layout_weight="5"
             android:orientation="horizontal"
-            android:queryHint="@string/search_query_hint">
+            android:queryHint="@string/book_hint_search_query">
 
         </SearchView>
 
         <TextView
-            android:id="@+id/sort_indicator"
             android:layout_width="0dp"
             android:layout_height="match_parent"
             android:layout_margin="10dp"
             android:layout_weight="1"
             android:gravity="center"
-            android:text="@string/sort_prompt" />
+            android:text="@string/book_sort_prompt" />
 
         <Spinner
             android:id="@+id/sort_drop_down"
@@ -53,7 +52,7 @@
             android:layout_marginStart="8dp"
             android:layout_weight="3"
             android:entries="@array/sort_list"
-            android:prompt="@string/sort_prompt"
+            android:prompt="@string/book_sort_prompt"
             android:spinnerMode="dropdown" />
     </LinearLayout>
 

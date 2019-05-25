@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="false"
@@ -18,12 +17,11 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/add_book_title"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="10"
                 android:gravity="center"
-                android:text="@string/book_add_text"
+                android:text="@string/book_text_add"
                 android:textSize="24sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -31,7 +29,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
-                android:id="@+id/imageButton"
                 style="@style/Widget.AppCompat.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -40,11 +37,11 @@
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent"
-                app:srcCompat="@android:drawable/ic_menu_close_clear_cancel" />
+                app:srcCompat="@android:drawable/ic_menu_close_clear_cancel"
+                android:contentDescription="TODO" />
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
-            android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="?android:attr/listDivider" />
@@ -59,20 +56,19 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/book_author_title_label"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:text="@string/author_label"
+                    android:text="@string/book_label_author"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/book_author_input_form"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:ems="10"
-                    android:hint="@string/book_author_form_hint"
-                    android:inputType="textPersonName|textCapWords" />
+                    android:hint="@string/book_hint_author_form"
+                    android:inputType="textPersonName|textCapWords"
+                    android:autofillHints="" />
 
             </TableRow>
 
@@ -81,11 +77,10 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/book_title_label"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:text="@string/title_label"
+                    android:text="@string/book_label_title"
                     android:textSize="18sp" />
 
                 <EditText
@@ -93,7 +88,7 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:ems="10"
-                    android:hint="@string/book_title_form_hint"
+                    android:hint="@string/book_hint_title_form"
                     android:inputType="textAutoCorrect|text|textAutoComplete|textCapWords" />
 
             </TableRow>
@@ -103,19 +98,17 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:id="@+id/book_isbn_label"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:text="@string/isbn_label"
+                    android:text="@string/book_label_isbn"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/book_isbn_input_form"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="@string/book_isbn_form_hint"
+                    android:hint="@string/book_hint_isbn_form"
                     android:inputType="number|text" />
             </TableRow>
 
@@ -124,19 +117,17 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:id="@+id/book_cover_url_label"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
-                    android:text="@string/book_cover_url_label"
+                    android:text="@string/book_label_cover_url"
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/book_cover_url_input_form"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
-                    android:hint="@string/book_cover_url_form_hint"
+                    android:hint="@string/book_hint_cover_url_form"
                     android:inputType="textUri|text" />
             </TableRow>
         </TableLayout>
@@ -145,7 +136,7 @@
             android:id="@+id/book_submit_button"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/submit_book_button" />
+            android:text="@string/book_add_submit_button" />
 
     </LinearLayout>
 </ScrollView>
