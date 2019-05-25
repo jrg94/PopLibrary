@@ -9,6 +9,8 @@ import java.util.*
  * A class of converters used by the Room database to
  * convert objects like Date, Lexile, and FountasAndPinell
  * into sqlite cells.
+ *
+ * @author Jeremy Grifski
  */
 class Converters {
 

@@ -48,7 +48,7 @@ class Lexile(val level: Int, val type: LexileType) : Comparable<Lexile> {
     /**
      * A helpful operator for comparing lexile levels.
      *
-     * @return an integer > 0 when <code>this</code> lexile is larger than <code>other</code>
+     * @return an integer > 0 when `this` lexile is larger than `other`
      */
     override fun compareTo(other: Lexile): Int {
         return this.toInteger() - other.toInteger()
