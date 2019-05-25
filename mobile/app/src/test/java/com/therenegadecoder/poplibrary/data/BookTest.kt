@@ -29,6 +29,12 @@ class BookTest {
     }
 
     @org.junit.Test
+    fun matchISBN13() {
+        val book = Book(isbn13 = "976-143136645")
+        assertTrue(book.match("66"))
+    }
+
+    @org.junit.Test
     fun matchNone() {
         val book = Book(title = "The Great Gatsby", language = "English", author = "Stephen Colbert")
         assertFalse(book.match("Art"))

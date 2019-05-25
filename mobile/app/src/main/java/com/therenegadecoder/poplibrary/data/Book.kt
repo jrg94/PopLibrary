@@ -46,6 +46,7 @@ data class Book(
                 || checkContains(author, str)
                 || checkContains(editor, str)
                 || checkContains(language, str)
+                || checkContains(isbn13, str)
     }
 
     /**
