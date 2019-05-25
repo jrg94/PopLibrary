@@ -18,7 +18,7 @@ class Converters {
      * Converts a timestamp to a Date object.
      *
      * @param value the long to be converted
-     * @return the date
+     * @return the timestamp [value] as a date
      */
     @TypeConverter
     fun fromTimestamp(value: Long?): Date? {
@@ -27,12 +27,23 @@ class Converters {
 
     /**
      * Converts a Date object into a long.
+     *
+     * @param date the date object
+     * @return the [date] as a timestamp
      */
     @TypeConverter
     fun fromDate(date: Date?): Long? {
         return date?.time
     }
 
+    /**
+     * Converts a Lexile object to a Lexile string.
+     * i.e. Lexile(200, LexileType.BR) -> BR200
+     * Not to be confused with [Lexile.toString].
+     *
+     * @param lexileLevel the Lexile level object (i.e. Lexile(1000))
+     * @return the [lexileLevel] as a Lexel string (i.e. NA1000)
+     */
     @TypeConverter
     fun fromLexileLevel(lexileLevel: Lexile?): String? {
         return lexileLevel?.let {
@@ -42,10 +53,10 @@ class Converters {
 
     /**
      * Converts a Lexile string to a Lexile object.
-     * i.e. NA100 -> Lexile(100, NA)
+     * i.e. NA100 -> Lexile(100, LexileType.NA)
      *
      * @param lexileText the lexile as a string (i.e. AD1600)
-     * @return a Lexile object (i.e. Lexile(1700))
+     * @return the [lexileText] as a Lexile object (i.e. Lexile(1700))
      */
     @TypeConverter
     fun fromLexileText(lexileText: String?): Lexile? {
