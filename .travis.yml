@@ -1,0 +1,7 @@
+language: android
+android:
+  components:
+    - android-28
+
+before_script:
+  - cd mobile

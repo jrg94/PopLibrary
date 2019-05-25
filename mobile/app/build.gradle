@@ -9,7 +9,7 @@ apply plugin: 'kotlin-kapt'
 android {
     compileSdkVersion 28
     defaultConfig {
-        applicationId "com.example.poplibrary"
+        applicationId "com.therenegadecoder.poplibrary"
         minSdkVersion 19
         targetSdkVersion 28
         versionCode 1
