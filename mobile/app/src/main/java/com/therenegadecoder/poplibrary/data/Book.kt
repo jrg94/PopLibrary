@@ -32,7 +32,7 @@ data class Book(
      * @return book as a string
      */
     override fun toString(): String {
-        return title!!
+        return title ?: ""
     }
 
     /**
