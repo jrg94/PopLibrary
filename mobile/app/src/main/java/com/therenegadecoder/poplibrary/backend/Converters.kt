@@ -5,13 +5,27 @@ import com.therenegadecoder.poplibrary.data.FountasAndPinell
 import com.therenegadecoder.poplibrary.data.Lexile
 import java.util.*
 
+/**
+ * A class of converters used by the Room database to
+ * convert objects like Date, Lexile, and FountasAndPinell
+ * into sqlite cells.
+ */
 class Converters {
 
+    /**
+     * Converts a timestamp to a Date object.
+     *
+     * @param value the long to be converted
+     * @return the date
+     */
     @TypeConverter
     fun fromTimestamp(value: Long?): Date? {
         return value?.let { Date(it) }
     }
 
+    /**
+     * Converts a Date object into a long.
+     */
     @TypeConverter
     fun fromDate(date: Date?): Long? {
         return date?.time
