@@ -1,5 +1,6 @@
 package com.therenegadecoder.poplibrary.backend
 
+import com.therenegadecoder.poplibrary.data.Lexile
 import org.junit.Test
 
 import org.junit.Assert.*
@@ -18,7 +19,13 @@ class ConvertersTest {
     }
 
     @Test
-    fun fromLexileLevel() {
+    fun fromLexileLevelNA() {
+        assertEquals("NA1000", Converters().fromLexileLevel(Lexile(1000)))
+    }
+
+    @Test
+    fun fromLexileLevelAD() {
+        assertEquals("AD1000", Converters().fromLexileLevel(Lexile(1000, Lexile.LexileType.AD)))
     }
 
     @Test

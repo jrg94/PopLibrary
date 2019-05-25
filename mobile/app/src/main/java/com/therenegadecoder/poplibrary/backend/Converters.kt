@@ -68,11 +68,23 @@ class Converters {
         }
     }
 
+    /**
+     * Converts a FountasAndPinell object to a string.
+     *
+     * @param fountasAndPinell an F&P rating object
+     * @return the [fountasAndPinell] rating as a string
+     */
     @TypeConverter
     fun fromFountasAndPinell(fountasAndPinell: FountasAndPinell?): String? {
         return fountasAndPinell?.name
     }
 
+    /**
+     * Converts a F&P rating string to an FountasAndPinell object.
+     *
+     * @param fountasAndPinellText an F&P rating string
+     * @return the [fountasAndPinellText] string as a FountasAndPinell object
+     */
     @TypeConverter
     fun fromFountasAndPinellText(fountasAndPinellText: String?): FountasAndPinell? {
         return fountasAndPinellText?.let { FountasAndPinell.valueOf(it) }
