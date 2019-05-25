@@ -31,7 +31,7 @@ class BookTest {
     @org.junit.Test
     fun matchISBN13() {
         val book = Book(isbn13 = "976-143136645")
-        assertFalse(book.match("66"))
+        assertTrue(book.match("66"))
     }
 
     @org.junit.Test
