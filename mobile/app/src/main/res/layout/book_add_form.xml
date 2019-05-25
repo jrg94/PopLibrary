@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:fillViewport="false"
@@ -18,7 +17,6 @@
             android:layout_height="match_parent">
 
             <TextView
-                android:id="@+id/add_book_title"
                 android:layout_width="match_parent"
                 android:layout_height="0dp"
                 android:layout_weight="10"
@@ -31,7 +29,6 @@
                 app:layout_constraintTop_toTopOf="parent" />
 
             <ImageButton
-                android:id="@+id/imageButton"
                 style="@style/Widget.AppCompat.ImageButton"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -44,7 +41,6 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <View
-            android:id="@+id/divider"
             android:layout_width="match_parent"
             android:layout_height="3dp"
             android:background="?android:attr/listDivider" />
@@ -59,7 +55,6 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/book_author_title_label"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
@@ -67,12 +62,12 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/book_author_input_form"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:ems="10"
                     android:hint="@string/book_hint_author_form"
-                    android:inputType="textPersonName|textCapWords" />
+                    android:inputType="textPersonName|textCapWords"
+                    android:autofillHints="" />
 
             </TableRow>
 
@@ -81,7 +76,6 @@
                 android:layout_height="match_parent">
 
                 <TextView
-                    android:id="@+id/book_title_label"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
@@ -103,7 +97,6 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:id="@+id/book_isbn_label"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
@@ -111,7 +104,6 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/book_isbn_input_form"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"
@@ -124,7 +116,6 @@
                 android:layout_height="match_parent" >
 
                 <TextView
-                    android:id="@+id/book_cover_url_label"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
@@ -132,7 +123,6 @@
                     android:textSize="18sp" />
 
                 <EditText
-                    android:id="@+id/book_cover_url_input_form"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ems="10"

@@ -19,7 +19,7 @@ class BookAdapter : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterab
     private var books = emptyList<Book>()
     private var booksSearchList: MutableList<Book> = books.toMutableList()
 
-    class BookViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    class BookViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val isbnTextView: TextView = view.isbn_text_view
         val titleTextView: TextView = view.title_text_view
         val authorTextView: TextView = view.author_text_view

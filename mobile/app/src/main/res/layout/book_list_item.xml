@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="200dp"
     android:orientation="vertical">
@@ -36,7 +35,6 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/title_label"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
                         android:paddingLeft="10dp"
@@ -55,7 +53,6 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/author_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
@@ -74,7 +71,6 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/isbn_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
@@ -94,7 +90,6 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/lexile_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
@@ -113,7 +108,6 @@
                     android:layout_height="match_parent">
 
                     <TextView
-                        android:id="@+id/fountas_pinell_label"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
@@ -121,7 +115,6 @@
                         android:text="@string/book_label_fountas_pinell" />
 
                     <TextView
-                        android:id="@+id/fountas_pinell_text_view"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:hint="@string/book_unavailable_info" />

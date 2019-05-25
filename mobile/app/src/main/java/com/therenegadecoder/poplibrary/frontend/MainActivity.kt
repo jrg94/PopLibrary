@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bookViewModel: BookViewModel
     private val newBookActivityRequestCode = 1
 
-    fun csvToBooks(stream: InputStream): List<Book> {
+    private fun csvToBooks(stream: InputStream): List<Book> {
         val books: MutableList<Book> = mutableListOf()
         val reader = BufferedReader(InputStreamReader(stream))
         val lines = reader.readLines()
