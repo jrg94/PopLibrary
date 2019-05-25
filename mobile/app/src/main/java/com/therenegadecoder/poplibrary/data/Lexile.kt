@@ -5,7 +5,7 @@ package com.therenegadecoder.poplibrary.data
  * -400 and +2000. However, negative values are typically written as BR400L
  * for beginning reader -400.
  */
-class Lexile (val level: Int, val type: LexileType) : Comparable<Lexile> {
+class Lexile(val level: Int, val type: LexileType) : Comparable<Lexile> {
 
     /**
      * A lexile classification enum.

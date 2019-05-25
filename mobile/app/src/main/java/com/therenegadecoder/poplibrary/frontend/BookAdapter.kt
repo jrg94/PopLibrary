@@ -14,7 +14,7 @@ import com.therenegadecoder.poplibrary.data.Book
 import kotlinx.android.synthetic.main.book_list_item.view.*
 
 
-class BookAdapter () : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterable {
+class BookAdapter : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filterable {
 
     private var books = emptyList<Book>()
     private var booksSearchList: MutableList<Book> = books.toMutableList()
@@ -38,7 +38,7 @@ class BookAdapter () : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filte
         holder.isbnTextView.text = booksSearchList[position].isbn13
         holder.titleTextView.text = booksSearchList[position].title
         holder.authorTextView.text = booksSearchList[position].author
-        holder.lexileLevelTextView.text = booksSearchList[position].lexileLevel?.toString() 
+        holder.lexileLevelTextView.text = booksSearchList[position].lexileLevel?.toString()
         Glide.with(holder.itemView)
             .load(booksSearchList[position].coverImageURL)
             .fallback(R.drawable.generic_book_cover)
@@ -51,7 +51,7 @@ class BookAdapter () : RecyclerView.Adapter<BookAdapter.BookViewHolder>(), Filte
      * Filters the adapter to only include items that match the filter.
      */
     override fun getFilter(): Filter {
-        return object: Filter() {
+        return object : Filter() {
 
             /**
              * Performs the filtering operation based on a character sequence.

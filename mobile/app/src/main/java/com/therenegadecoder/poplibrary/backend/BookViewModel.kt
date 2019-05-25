@@ -4,13 +4,11 @@ import android.app.Application
 import androidx.lifecycle.AndroidViewModel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.viewModelScope
-import com.therenegadecoder.poplibrary.backend.BookRepository
-import com.therenegadecoder.poplibrary.backend.BookRoomDatabase
 import com.therenegadecoder.poplibrary.data.Book
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 
-class BookViewModel(application: Application): AndroidViewModel(application) {
+class BookViewModel(application: Application) : AndroidViewModel(application) {
     private val repository: BookRepository
     val allBooks: LiveData<List<Book>>
 

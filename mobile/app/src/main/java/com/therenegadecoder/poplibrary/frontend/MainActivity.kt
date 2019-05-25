@@ -16,7 +16,7 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
-import com.therenegadecoder.poplibrary.*
+import com.therenegadecoder.poplibrary.R
 import com.therenegadecoder.poplibrary.backend.BookViewModel
 import com.therenegadecoder.poplibrary.data.Book
 import com.therenegadecoder.poplibrary.data.FountasAndPinell
@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
     private lateinit var bookViewModel: BookViewModel
     private val newBookActivityRequestCode = 1
 
-    fun csvToBooks(stream: InputStream) : List<Book>{
+    fun csvToBooks(stream: InputStream): List<Book> {
         val books: MutableList<Book> = mutableListOf()
         val reader = BufferedReader(InputStreamReader(stream))
         val lines = reader.readLines()
@@ -118,8 +118,8 @@ class MainActivity : AppCompatActivity() {
      */
     private fun loadFilterFunction() {
         val spinner: Spinner = findViewById(R.id.sort_drop_down)
-        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
-            override fun onNothingSelected(parent: AdapterView<*>?) { }
+        spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
+            override fun onNothingSelected(parent: AdapterView<*>?) {}
 
             override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                 viewAdapter.sort(parent?.getItemAtPosition(position).toString())

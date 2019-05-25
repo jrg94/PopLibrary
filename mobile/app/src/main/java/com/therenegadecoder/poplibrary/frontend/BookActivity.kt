@@ -10,7 +10,7 @@ import android.widget.EditText
 import androidx.appcompat.app.AppCompatActivity
 import com.therenegadecoder.poplibrary.R
 
-class BookActivity: AppCompatActivity() {
+class BookActivity : AppCompatActivity() {
 
     private lateinit var titleView: EditText
 

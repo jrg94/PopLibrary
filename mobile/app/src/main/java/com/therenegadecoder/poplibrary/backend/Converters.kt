@@ -7,12 +7,12 @@ import java.util.*
 
 class Converters {
     @TypeConverter
-    fun fromTimestamp(value: Long?) : Date? {
+    fun fromTimestamp(value: Long?): Date? {
         return value?.let { Date(it) }
     }
 
     @TypeConverter
-    fun fromDate(date: Date?) : Long? {
+    fun fromDate(date: Date?): Long? {
         return date?.time
     }
 
@@ -39,7 +39,7 @@ class Converters {
     }
 
     @TypeConverter
-    fun fromFountasAndPinellText(fountasAndPinellText: String?) : FountasAndPinell? {
+    fun fromFountasAndPinellText(fountasAndPinellText: String?): FountasAndPinell? {
         return fountasAndPinellText?.let { FountasAndPinell.valueOf(it) }
     }
 }
