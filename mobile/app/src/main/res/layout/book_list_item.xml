@@ -22,7 +22,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_gravity="center_vertical"
-                app:srcCompat="@mipmap/the_renegade_coder_icon" />
+                app:srcCompat="@mipmap/the_renegade_coder_icon"
+                android:contentDescription="TODO" />
 
             <TableLayout
                 android:layout_width="wrap_content"
