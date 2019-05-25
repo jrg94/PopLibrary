@@ -117,7 +117,7 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/book_label_lexile" />
+                        android:text="@string/book_label_fountas_pinell" />
 
                     <TextView
                         android:id="@+id/fountas_pinell_text_view"
