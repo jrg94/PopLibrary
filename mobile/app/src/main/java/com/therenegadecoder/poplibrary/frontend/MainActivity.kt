@@ -1,4 +1,4 @@
-package com.therenegadecoder.poplibrary
+package com.therenegadecoder.poplibrary.frontend
 
 import android.app.Activity
 import android.app.SearchManager
@@ -16,6 +16,11 @@ import androidx.lifecycle.ViewModelProviders
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.google.android.material.floatingactionbutton.FloatingActionButton
+import com.therenegadecoder.poplibrary.*
+import com.therenegadecoder.poplibrary.backend.BookViewModel
+import com.therenegadecoder.poplibrary.data.Book
+import com.therenegadecoder.poplibrary.data.FountasAndPinell
+import com.therenegadecoder.poplibrary.data.Lexile
 import java.io.BufferedReader
 import java.io.InputStream
 import java.io.InputStreamReader
@@ -55,7 +60,10 @@ class MainActivity : AppCompatActivity() {
                     author = list[1],
                     lexileLevel = when (lexileLevel) {
                         null -> null
-                        else -> Lexile(lexileLevel, Lexile.LexileType.NA)
+                        else -> Lexile(
+                            lexileLevel,
+                            Lexile.LexileType.NA
+                        )
                     },
                     fountasAndPinell = fountasAndPinell
                 )
@@ -96,7 +104,8 @@ class MainActivity : AppCompatActivity() {
 
         if (requestCode == newBookActivityRequestCode && resultCode == Activity.RESULT_OK) {
             data?.let {
-                val book = Book(title = it.getStringExtra(BookActivity.EXTRA_REPLY))
+                val book =
+                    Book(title = it.getStringExtra(BookActivity.EXTRA_REPLY))
                 bookViewModel.insert(book)
             }
         } else {

@@ -1,6 +1,8 @@
-package com.therenegadecoder.poplibrary
+package com.therenegadecoder.poplibrary.backend
 
 import androidx.room.TypeConverter
+import com.therenegadecoder.poplibrary.data.FountasAndPinell
+import com.therenegadecoder.poplibrary.data.Lexile
 import java.util.*
 
 class Converters {

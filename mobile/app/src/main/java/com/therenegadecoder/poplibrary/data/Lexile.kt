@@ -1,4 +1,4 @@
-package com.therenegadecoder.poplibrary
+package com.therenegadecoder.poplibrary.data
 
 /**
  * A lexile is a reading level unit. It's often defined as a number between

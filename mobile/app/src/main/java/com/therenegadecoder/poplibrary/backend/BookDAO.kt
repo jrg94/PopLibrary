@@ -1,9 +1,10 @@
-package com.therenegadecoder.poplibrary
+package com.therenegadecoder.poplibrary.backend
 
 import androidx.lifecycle.LiveData
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.Query
+import com.therenegadecoder.poplibrary.data.Book
 
 @Dao
 interface BookDAO {

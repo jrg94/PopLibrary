@@ -1,4 +1,4 @@
-package com.therenegadecoder.poplibrary
+package com.therenegadecoder.poplibrary.frontend
 
 import android.view.LayoutInflater
 import android.view.View
@@ -9,6 +9,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.therenegadecoder.poplibrary.R
+import com.therenegadecoder.poplibrary.data.Book
 import kotlinx.android.synthetic.main.book_list_item.view.*
 
 

@@ -1,4 +1,4 @@
-package com.therenegadecoder.poplibrary
+package com.therenegadecoder.poplibrary.data
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
