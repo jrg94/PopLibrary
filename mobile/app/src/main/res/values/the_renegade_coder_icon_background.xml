@@ -1,4 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="the_renegade_coder_icon_background">#C91728</color>
+    <color name="the_renegade_coder_icon_background">@color/colorPrimary</color>
 </resources>
