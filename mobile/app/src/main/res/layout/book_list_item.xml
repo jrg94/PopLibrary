@@ -40,13 +40,13 @@
                         android:layout_height="match_parent"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/title_label" />
+                        android:text="@string/book_label_title" />
 
                     <TextView
                         android:id="@+id/title_text_view"
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:hint="@string/unavailable_book_info" />
+                        android:hint="@string/book_unavailable_info" />
                 </TableRow>
 
                 <TableRow
@@ -59,13 +59,13 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/author_label" />
+                        android:text="@string/book_label_author" />
 
                     <TextView
                         android:id="@+id/author_text_view"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:hint="@string/unavailable_book_info" />
+                        android:hint="@string/book_unavailable_info" />
                 </TableRow>
 
                 <TableRow
@@ -78,13 +78,13 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/isbn_label" />
+                        android:text="@string/book_label_isbn" />
 
                     <TextView
                         android:id="@+id/isbn_text_view"
                         android:layout_width="421dp"
                         android:layout_height="wrap_content"
-                        android:hint="@string/unavailable_book_info" />
+                        android:hint="@string/book_unavailable_info" />
 
                 </TableRow>
 
@@ -98,13 +98,13 @@
                         android:layout_height="wrap_content"
                         android:paddingLeft="10dp"
                         android:paddingRight="10dp"
-                        android:text="@string/lexile_label" />
+                        android:text="@string/book_label_lexile" />
 
                     <TextView
                         android:id="@+id/lexile_text_view"
                         android:layout_width="421dp"
                         android:layout_height="wrap_content"
-                        android:hint="@string/unavailable_book_info" />
+                        android:hint="@string/book_unavailable_info" />
                 </TableRow>
 
             </TableLayout>
