@@ -23,12 +23,21 @@ class Lexile (val level: Int, val type: LexileType) : Comparable<Lexile> {
 
     /**
      * Converts the lexile level to an integer for comparison purposes.
+     *
+     * @return the lexile level as an integer (rough range: -400 - +2000)
      */
-    fun toInteger() = when {
+    private fun toInteger() = when {
         this.type == LexileType.BR -> -level
         else -> level
     }
 
+    /**
+     * Overrides the toString() method to provide an easy way to
+     * print the lexile level to the user. In this case, the
+     * output will look like: {type}{level}L (i.e. BR300L).
+     *
+     * @return a string representing this lexile
+     */
     override fun toString(): String {
         return when (this.type) {
             LexileType.NA -> level.toString() + "L"
@@ -36,6 +45,11 @@ class Lexile (val level: Int, val type: LexileType) : Comparable<Lexile> {
         }
     }
 
+    /**
+     * A helpful operator for comparing lexile levels.
+     *
+     * @return an integer > 0 when <code>this</code> lexile is larger than <code>other</code>
+     */
     override fun compareTo(other: Lexile): Int {
         return this.toInteger() - other.toInteger()
     }

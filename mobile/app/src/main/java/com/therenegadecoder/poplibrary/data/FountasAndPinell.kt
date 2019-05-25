@@ -1,5 +1,8 @@
 package com.therenegadecoder.poplibrary.data
 
+/**
+ * An enum for the Fountas & Pinell reading level system.
+ */
 enum class FountasAndPinell(val recommendedGrade: String) {
     A("Kindergarten"),
     B("Kindergarten"),

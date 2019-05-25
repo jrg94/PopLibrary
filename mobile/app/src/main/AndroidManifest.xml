@@ -10,14 +10,14 @@
             android:roundIcon="@mipmap/the_renegade_coder_icon_round"
             android:supportsRtl="true"
             android:theme="@style/AppTheme">
-        <activity android:name="com.therenegadecoder.poplibrary.MainActivity">
+        <activity android:name="com.therenegadecoder.poplibrary.frontend.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN"/>
 
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name="com.therenegadecoder.poplibrary.BookActivity" />
+        <activity android:name="com.therenegadecoder.poplibrary.frontend.BookActivity" />
     </application>
 
 
