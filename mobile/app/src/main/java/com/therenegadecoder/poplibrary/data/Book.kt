@@ -24,7 +24,7 @@ data class Book(
     val fountasAndPinell: FountasAndPinell? = null
 ) {
     @PrimaryKey(autoGenerate = true)
-    private var bookId: Int = 0
+    var bookId: Int = 0
 
     /**
      * Converts the book to a string.
