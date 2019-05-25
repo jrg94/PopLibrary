@@ -40,6 +40,13 @@ class Converters {
         }
     }
 
+    /**
+     * Converts a Lexile string to a Lexile object.
+     * i.e. NA100 -> Lexile(100, NA)
+     *
+     * @param lexileText the lexile as a string (i.e. AD1600)
+     * @return a Lexile object (i.e. Lexile(1700))
+     */
     @TypeConverter
     fun fromLexileText(lexileText: String?): Lexile? {
         return lexileText?.let {
