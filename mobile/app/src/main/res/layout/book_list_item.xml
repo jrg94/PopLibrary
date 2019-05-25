@@ -107,6 +107,25 @@
                         android:hint="@string/book_unavailable_info" />
                 </TableRow>
 
+                <TableRow
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" >
+
+                    <TextView
+                        android:id="@+id/lexile_label2"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:text="@string/book_label_lexile" />
+
+                    <TextView
+                        android:id="@+id/lexile_text_view2"
+                        android:layout_width="421dp"
+                        android:layout_height="wrap_content"
+                        android:hint="@string/book_unavailable_info" />
+                </TableRow>
+
             </TableLayout>
 
         </LinearLayout>
