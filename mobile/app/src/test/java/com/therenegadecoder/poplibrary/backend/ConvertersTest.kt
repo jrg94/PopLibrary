@@ -1,5 +1,6 @@
 package com.therenegadecoder.poplibrary.backend
 
+import com.therenegadecoder.poplibrary.data.FountasAndPinell
 import com.therenegadecoder.poplibrary.data.Lexile
 import org.junit.Test
 
@@ -40,9 +41,11 @@ class ConvertersTest {
 
     @Test
     fun fromFountasAndPinell() {
+        assertEquals("A", Converters().fromFountasAndPinell(FountasAndPinell.A))
     }
 
     @Test
     fun fromFountasAndPinellText() {
+        assertEquals(FountasAndPinell.B, Converters().fromFountasAndPinellText("B"))
     }
 }
