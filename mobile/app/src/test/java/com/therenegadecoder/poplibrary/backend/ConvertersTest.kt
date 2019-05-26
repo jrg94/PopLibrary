@@ -29,7 +29,13 @@ class ConvertersTest {
     }
 
     @Test
-    fun fromLexileText() {
+    fun fromLexileTextNA() {
+        assertEquals(Lexile(1000), Converters().fromLexileText("NA1000"))
+    }
+
+    @Test
+    fun fromLexileTextBR() {
+        assertEquals(Lexile(400, Lexile.LexileType.BR), Converters().fromLexileText("BR400"))
     }
 
     @Test

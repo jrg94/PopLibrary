@@ -53,5 +53,23 @@ class Lexile(val level: Int, val type: LexileType = LexileType.NA) : Comparable<
     override fun compareTo(other: Lexile): Int {
         return this.toInteger() - other.toInteger()
     }
+
+    /**
+     * Tests whether or not this Lexile is equivalent to
+     * some other object.
+     *
+     * @param other some object
+     * @return true if this object is equal to [other]
+     */
+    override fun equals(other: Any?): Boolean {
+        return when {
+            this === other -> true
+            other?.javaClass != javaClass -> false
+            else -> {
+                other as Lexile
+                this.level == other.level && this.type == other.type
+            }
+        }
+    }
 }
 
