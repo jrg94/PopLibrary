@@ -37,4 +37,18 @@ class LexileTest {
         val lex2 = Lexile(400, Lexile.LexileType.BR)
         assertTrue(lex2 < lex1)
     }
+
+    @Test
+    fun equalsNot() {
+        val lex1 = Lexile(270, Lexile.LexileType.NA)
+        val lex2 = Lexile(400, Lexile.LexileType.BR)
+        assertFalse(lex1 == lex2)
+    }
+
+    @Test
+    fun equals() {
+        val lex1 = Lexile(400, Lexile.LexileType.BR)
+        val lex2 = Lexile(400, Lexile.LexileType.BR)
+        assertTrue(lex1 == lex2)
+    }
 }

@@ -9,6 +9,16 @@ import java.util.*
  * Models a book.
  *
  * @author Jeremy Grifski
+ * @property isbn13 the ISBN-13 for the book
+ * @property title the title of the book
+ * @property author the author of the book
+ * @property editor the editor of the book
+ * @property language the language the book was written in
+ * @property coverImageURL the URL of an image of the cover of the book
+ * @property pageCount the number of pages in the book
+ * @property dateOfPublication the date the book was published
+ * @property lexileLevel the Lexile level of the book
+ * @property fountasAndPinell the Fountas & Pinell level of the book
  */
 @Entity(tableName = "book_table")
 data class Book(
